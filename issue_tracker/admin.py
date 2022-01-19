@@ -28,4 +28,3 @@ class StatusAdmin(admin.ModelAdmin):
 admin.site.register(Task, TaskAdmin)
 admin.site.register(Type, TypeAdmin)
 admin.site.register(Status, StatusAdmin)
-
