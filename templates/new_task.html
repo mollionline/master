@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h4>Создать задачу</h4>
+<form method="POST" action="{% url 'new_task' %}" style="margin-top: 20px; width: 70%;">
+    {% csrf_token %}
+    {% include 'form_task.html' with button_text='Создать' %}
+</form>
+{% endblock %}
