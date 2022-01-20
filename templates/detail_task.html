@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        Название: {{ task.summary }}
+    </div>
+    <div>
+        Описание: {{ task.description }}
+    </div>
+    <div>
+        Статус: {{ task.status }}
+    </div>
+    <div>
+        Тип: {{ task.type }}
+    </div>
+    <div>
+        Дата создания: {{ task.created_at|date:'d.m.Y G:i' }}
+    </div>
+    <div>
+        <a href="{% url 'list_task' %}">Список задач</a>
+    </div>
+{% endblock %}
