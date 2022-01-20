@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.views import View
 from django.views.generic import TemplateView, RedirectView
 from issue_tracker.models import Task, Type, Status
 from issue_tracker.forms import TaskForm
@@ -86,3 +87,12 @@ class EditTaskView(TemplateView):
             'statuses': Status.objects.all(),
             'types': Type.objects.all()
         })
+
+
+class DeleteTaskView(View):
+    template_name = 'list_task'
+
+    def post(self, request, *args, **kwargs):
+        task = get_object_or_404(Task, pk=kwargs.get('pk'))
+        task.delete()
+        return redirect(self.template_name)

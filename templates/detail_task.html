@@ -18,7 +18,7 @@
         Дата создания: {{ task.created_at|date:'d.m.Y G:i' }}
     </div>
 
-     <div>
+    <div>
         Дата редактирования: {{ task.updated_at|date:'d.m.Y G:i' }}
     </div>
 
@@ -28,4 +28,11 @@
     <div>
         <a href="{% url 'edit_task' task.pk %}">Изменить</a>
     </div>
+    <div>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                style="color: red; background: none; border: none; text-decoration: underline">
+            Удалить
+        </button>
+    </div>
+    {% include 'common/delete_modal.html' with deleted_object=task %}
 {% endblock %}
