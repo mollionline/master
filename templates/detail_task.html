@@ -1,38 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div>
-        Название: {{ task.summary }}
-    </div>
-    <div>
-        Описание: {{ task.description }}
-    </div>
-    <div>
-        Статус: {{ task.status }}
-    </div>
-    <div>
-        Тип: {{ task.type }}
-    </div>
-
-    <div>
-        Дата создания: {{ task.created_at|date:'d.m.Y G:i' }}
-    </div>
-
-    <div>
-        Дата редактирования: {{ task.updated_at|date:'d.m.Y G:i' }}
-    </div>
-
-    <div>
-        <a href="{% url 'list_task' %}">Список задач</a>
-    </div>
-    <div>
-        <a href="{% url 'edit_task' task.pk %}">Изменить</a>
-    </div>
-    <div>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                style="color: red; background: none; border: none; text-decoration: underline">
-            Удалить
-        </button>
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title">Название: {{ task.summary }}</div>
+            {% if task.description %}
+                <p>Описание задачи: {{ task.description }}</p>
+            {% else %}
+                <p>Описание задачи не задано</p>
+            {% endif %}
+            <p>Статус: {{ task.status }}</p>
+            <p>Тип: {{ task.type }}</p>
+            <p>Дата создания: {{ task.created_at|date:'d.m.Y G:i' }}</p>
+            <p>Дата редактирования: {{ task.updated_at|date:'d.m.Y G:i' }}</p>
+            <a class="btn btn-dark" href="{% url 'list_task' %}">Вернуться в список задач</a>
+            <a class="btn btn-success" href="{% url 'edit_task' task.pk %}">Изменить</a>
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">Удалить
+            </button>
+        </div>
     </div>
     {% include 'common/delete_modal.html' with deleted_object=task %}
 {% endblock %}

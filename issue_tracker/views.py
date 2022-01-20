@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
-from django.views.generic import TemplateView, RedirectView
+from django.views.generic import TemplateView
 from issue_tracker.models import Task, Type, Status
 from issue_tracker.forms import TaskForm
 from django.urls import reverse

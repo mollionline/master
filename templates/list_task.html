@@ -4,16 +4,15 @@
     <div class="row row-cols-1 align-items-start">
         {% for task in tasks %}
             <div class="col py-3">
-                <div class="card" style="border: 1px solid black;">
+                <div class="card" style="border: 1px solid deepskyblue;">
                     <div class="row">
-                        <div class="col-md-4 px-3">
+                        <div class="col-md-8 px-3">
                             <div class="card-body">
-                                <h5 class="card-title">{{ task.summary }}</h5>
-                                <p>{{ task.description }}</p>
-                                <p>{{ task.status }}</p>
-                                <p>{{ task.type }}</p>
-                                <p>{{ task.created_at|date:'Y.m.d' }}</p>
-                                <a href="{% url 'detail_task' task.pk %}" class="card-link">Подробнее</a>
+                                <h5 class="card-title" style="color: #1c1ca5">{{ task.summary }}</h5>
+                                <p>Статус: {{ task.status }}</p>
+                                <p>Тип: {{ task.type }}</p>
+                                <p>Дата создания: {{ task.created_at|date:'Y.m.d' }}</p>
+                                <a class="btn btn-info" href="{% url 'detail_task' task.pk %}" class="card-link">Подробнее</a>
                             </div>
                         </div>
                     </div>

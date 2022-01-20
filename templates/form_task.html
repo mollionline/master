@@ -1,12 +1,12 @@
 {% csrf_token %}
-<label for="summary">Название</label>
-<input class="form-control" id="summary" type="text" name="summary"
+<label for="summary">Название задачи</label>
+<input class="form-control {% if form.errors %} is-invalid {% endif %}" id="summary" type="text" name="summary"
        aria-describedby="summary" value="{{ form.summary.value }}">
-{% for error in form.errors %}
+{% for error in form.summary.errors %}
     <p class="invalid-feedback">{{ error }}</p>
 {% endfor %}
 <label for="description">Описание</label>
-<textarea class="form-control"  cols="30"
+<textarea class="form-control" cols="30"
           rows="10" id="description"
           name="description">{{ form.description.value }}</textarea>
 {% for error in form.description.errors %}
@@ -22,9 +22,6 @@
         {% endif %}
     {% endfor %}
 </select>
-{#{% for error in form.status.errors %}#}
-{#    <p class="invalid-feedback">{{ error }}</p>#}
-{#{% endfor %}#}
 <label for="type">Тип</label>
 <select class="form-control" name="type" id="type">
     {% for type in types %}
@@ -35,8 +32,4 @@
         {% endif %}
     {% endfor %}
 </select>
-{#{% for error in form.type.errors %}#}
-{#    <p class="invalid-feedback">{{ error }}</p>#}
-{#{% endfor %}#}
-
-<input type="submit" class="form-control" value="{{ button_text }}">
+<input type="submit" class="form-control btn btn-secondary" value="{{ button_text }}">
