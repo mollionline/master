@@ -49,3 +49,40 @@ class NewAddTaskView(TemplateView):
                                                             'form': form,
                                                             'statuses': Status.objects.all(),
                                                             'types': Type.objects.all()})
+
+
+class EditTaskView(TemplateView):
+    template_name = 'edit_task.html'
+
+    def get(self, request, *args, **kwargs):
+        task = get_object_or_404(Task, pk=self.kwargs.get('pk'))
+        form = TaskForm(initial={
+            'summary': task.summary,
+            'description': task.description,
+            'status': task.status,
+            'type': task.type
+        })
+        return render(request, self.template_name, context={
+            'task': task,
+            'form': form,
+            'statuses': Status.objects.all(),
+            'types': Type.objects.all()
+        })
+
+    def post(self, request, *args, **kwargs):
+        task = get_object_or_404(Task, pk=self.kwargs.get('pk'))
+        form = TaskForm(data=request.POST)
+        if form.is_valid():
+            task.summary = form.cleaned_data['summary']
+            task.description = form.cleaned_data['description']
+            task.status = form.cleaned_data['status']
+            task.type = form.cleaned_data['type']
+            task.save(update_fields=['summary', 'description', 'status', 'type', 'updated_at'])
+            return redirect('detail_task', pk=task.pk)
+        return render(request, 'edit_task.html', context={
+            'task': task,
+            'form': form,
+            'errors': form.errors,
+            'statuses': Status.objects.all(),
+            'types': Type.objects.all()
+        })

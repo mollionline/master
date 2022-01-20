@@ -8,6 +8,3 @@ class TaskForm(forms.Form):
     description = forms.CharField(max_length=1000, required=False)
     status = forms.ModelChoiceField(queryset=Status.objects.all())
     type = forms.ModelChoiceField(queryset=Type.objects.all())
-
-    def send_email(self):
-        pass

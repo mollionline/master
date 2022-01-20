@@ -13,10 +13,19 @@
     <div>
         Тип: {{ task.type }}
     </div>
+
     <div>
         Дата создания: {{ task.created_at|date:'d.m.Y G:i' }}
     </div>
+
+     <div>
+        Дата редактирования: {{ task.updated_at|date:'d.m.Y G:i' }}
+    </div>
+
     <div>
         <a href="{% url 'list_task' %}">Список задач</a>
+    </div>
+    <div>
+        <a href="{% url 'edit_task' task.pk %}">Изменить</a>
     </div>
 {% endblock %}
