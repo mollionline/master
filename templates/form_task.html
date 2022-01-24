@@ -15,7 +15,7 @@
 <label for="status">Статус</label>
 <select class="form-control" name="status" id="status">
     {% for status in statuses %}
-        {% if status == form.status.value %}
+        {% if status.pk == form.status.value %}
             <option selected value="{{ status.pk }}">{{ status.status }}</option>
         {% else %}
             <option value="{{ status.pk }}">{{ status.status }}</option>
@@ -25,7 +25,7 @@
 <label for="type">Тип</label>
 <select class="form-control" name="type" id="type">
     {% for type in types %}
-        {% if type == form.type.value %}
+        {% if type.pk in form.type.value %}
             <option selected value="{{ type.pk }}">{{ type.type }}</option>
         {% else %}
             <option value="{{ type.pk }}">{{ type.type }}</option>

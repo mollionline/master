@@ -43,26 +43,16 @@
 },
 {
     "model": "issue_tracker.task",
-    "pk": 1,
-    "fields": {
-        "summary": "Создать приложение Issue Tracker",
-        "description": "",
-        "status": 1,
-        "type": 1,
-        "created_at": "2022-01-19T15:30:43.801Z",
-        "updated_at": "2022-01-19T15:30:43.801Z"
-    }
-},
-{
-    "model": "issue_tracker.task",
     "pk": 2,
     "fields": {
         "summary": "Создать приложение Issue Tracker",
         "description": "",
         "status": 2,
-        "type": 1,
         "created_at": "2022-01-19T15:32:01.996Z",
-        "updated_at": "2022-01-19T15:32:01.996Z"
+        "updated_at": "2022-01-19T15:32:01.996Z",
+        "type": [
+            1
+        ]
     }
 },
 {
@@ -72,9 +62,11 @@
         "summary": "Создать миграцию",
         "description": "",
         "status": 1,
-        "type": 1,
         "created_at": "2022-01-19T15:32:32.032Z",
-        "updated_at": "2022-01-19T15:32:32.032Z"
+        "updated_at": "2022-01-19T15:32:32.032Z",
+        "type": [
+            1
+        ]
     }
 },
 {
@@ -84,9 +76,11 @@
         "summary": "Создать суперадмин",
         "description": "",
         "status": 1,
-        "type": 1,
         "created_at": "2022-01-19T15:32:57.758Z",
-        "updated_at": "2022-01-19T15:32:57.758Z"
+        "updated_at": "2022-01-19T15:32:57.758Z",
+        "type": [
+            1
+        ]
     }
 },
 {
@@ -96,9 +90,11 @@
         "summary": "Создать фикстуру базы данных",
         "description": "",
         "status": 1,
-        "type": 1,
         "created_at": "2022-01-19T15:33:28.689Z",
-        "updated_at": "2022-01-19T15:33:28.689Z"
+        "updated_at": "2022-01-19T15:33:28.689Z",
+        "type": [
+            1
+        ]
     }
 },
 {
@@ -108,9 +104,11 @@
         "summary": "Создать миграцию",
         "description": "",
         "status": 2,
-        "type": 1,
         "created_at": "2022-01-19T15:33:43.553Z",
-        "updated_at": "2022-01-19T15:33:43.553Z"
+        "updated_at": "2022-01-19T15:33:43.553Z",
+        "type": [
+            1
+        ]
     }
 },
 {
@@ -120,9 +118,11 @@
         "summary": "Создать GRUD для задачи",
         "description": "",
         "status": 1,
-        "type": 1,
         "created_at": "2022-01-19T15:34:32.554Z",
-        "updated_at": "2022-01-19T15:34:32.554Z"
+        "updated_at": "2022-01-19T15:34:32.554Z",
+        "type": [
+            1
+        ]
     }
 },
 {
@@ -132,9 +132,11 @@
         "summary": "Исправить ошибки при создании задачи",
         "description": "",
         "status": 1,
-        "type": 2,
         "created_at": "2022-01-19T15:34:57.466Z",
-        "updated_at": "2022-01-19T15:34:57.466Z"
+        "updated_at": "2022-01-24T15:21:14.598Z",
+        "type": [
+            2
+        ]
     }
 },
 {
@@ -143,46 +145,12 @@
     "fields": {
         "summary": "Улучшить главную страницу с бутстрапом",
         "description": "",
-        "status": 1,
-        "type": 3,
+        "status": 2,
         "created_at": "2022-01-19T15:35:25.049Z",
-        "updated_at": "2022-01-19T15:35:25.050Z"
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 10,
-    "fields": {
-        "summary": "Исправить ошибки при редактировании задачи",
-        "description": "",
-        "status": 1,
-        "type": 2,
-        "created_at": "2022-01-19T15:35:56.002Z",
-        "updated_at": "2022-01-19T15:35:56.002Z"
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 11,
-    "fields": {
-        "summary": "Исправить ошибки при удалении задачи",
-        "description": "",
-        "status": 1,
-        "type": 2,
-        "created_at": "2022-01-19T15:36:26.267Z",
-        "updated_at": "2022-01-19T15:36:26.267Z"
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 12,
-    "fields": {
-        "summary": "Создать возможность поиска по наименованию задачи",
-        "description": "",
-        "status": 1,
-        "type": 1,
-        "created_at": "2022-01-19T15:37:00.572Z",
-        "updated_at": "2022-01-19T15:37:00.572Z"
+        "updated_at": "2022-01-24T15:20:55.367Z",
+        "type": [
+            3
+        ]
     }
 },
 {

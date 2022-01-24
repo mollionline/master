@@ -38,12 +38,13 @@ class NewAddTaskView(TemplateView):
     def post(self, request, *args, **kwargs):
         form = TaskForm(data=request.POST)
         if form.is_valid():
+            type = form.cleaned_data.get('type')
             task, is_not_new = Task.objects.get_or_create(
                 summary=form.cleaned_data.get('summary'),
                 description=form.cleaned_data.get('description'),
-                status=form.cleaned_data.get('status'),
-                type=form.cleaned_data.get('type')
+                status=form.cleaned_data.get('status')
             )
+            task.type.set(type)
             url = reverse('detail_task', kwargs={'pk': task.pk})
             return HttpResponseRedirect(url)
         return render(request, self.template_name, context={'errors': form.errors,
@@ -57,12 +58,7 @@ class EditTaskView(TemplateView):
 
     def get(self, request, *args, **kwargs):
         task = get_object_or_404(Task, pk=self.kwargs.get('pk'))
-        form = TaskForm(initial={
-            'summary': task.summary,
-            'description': task.description,
-            'status': task.status,
-            'type': task.type
-        })
+        form = TaskForm(instance=task)
         return render(request, self.template_name, context={
             'task': task,
             'form': form,
@@ -77,8 +73,8 @@ class EditTaskView(TemplateView):
             task.summary = form.cleaned_data['summary']
             task.description = form.cleaned_data['description']
             task.status = form.cleaned_data['status']
-            task.type = form.cleaned_data['type']
-            task.save(update_fields=['summary', 'description', 'status', 'type', 'updated_at'])
+            task.type.set(form.cleaned_data['type'])
+            task.save(update_fields=['summary', 'description', 'status', 'updated_at'])
             return redirect('detail_task', pk=task.pk)
         return render(request, 'edit_task.html', context={
             'task': task,

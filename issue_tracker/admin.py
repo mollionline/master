@@ -4,10 +4,10 @@ from issue_tracker.models import Type, Status, Task
 
 # Register your models here.
 class TaskAdmin(admin.ModelAdmin):
-    list_display = ['id', 'summary', 'description', 'status', 'type', 'created_at', 'updated_at']
+    list_display = ['id', 'summary', 'description', 'status', 'created_at', 'updated_at']
     list_filter = ['summary']
     search_fields = ['summary', 'status', 'type']
-    fields = ['id', 'summary', 'description', 'status', 'type', 'created_at', 'updated_at']
+    fields = ['id', 'summary', 'description', 'status', 'created_at', 'updated_at']
     readonly_fields = ['id', 'created_at', 'updated_at']
 
 

@@ -10,7 +10,10 @@
                 <p>Описание задачи не задано</p>
             {% endif %}
             <p>Статус: {{ task.status }}</p>
-            <p>Тип: {{ task.type }}</p>
+            <p>Тип: {% for type in task.type.all %}
+            {{ type }}
+            {% endfor %}
+            </p>
             <p>Дата создания: {{ task.created_at|date:'d.m.Y G:i' }}</p>
             <p>Дата редактирования: {{ task.updated_at|date:'d.m.Y G:i' }}</p>
             <a class="btn btn-dark" href="{% url 'list_task' %}">Вернуться в список задач</a>
