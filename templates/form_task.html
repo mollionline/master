@@ -1,6 +1,6 @@
 {% csrf_token %}
 <label for="summary">Название задачи</label>
-<input class="form-control {% if form.errors %} is-invalid {% endif %}" id="summary" type="text" name="summary"
+<input class="form-control {% if form.summary.errors %} is-invalid {% endif %}" id="summary" type="text" name="summary"
        aria-describedby="summary" value="{{ form.summary.value }}">
 {% for error in form.summary.errors %}
     <p class="invalid-feedback">{{ error }}</p>
@@ -22,14 +22,16 @@
         {% endif %}
     {% endfor %}
 </select>
-<label for="type">Тип</label>
-<select class="form-control" name="type" id="type">
-    {% for type in types %}
-        {% if type.pk in form.type.value %}
-            <option selected value="{{ type.pk }}">{{ type.type }}</option>
-        {% else %}
-            <option value="{{ type.pk }}">{{ type.type }}</option>
-        {% endif %}
-    {% endfor %}
-</select>
+{% for type in types %}
+    <div class="form-check form-switch">
+        <br>
+        <label class="form-check-label" for="type">{{ type.type }}</label>
+        <input class="form-check-input form-control {% if form.type.errors %} is-invalid {% endif %}" id="type"
+               name="type" type="checkbox" {% if type in task.type.all %} checked {% endif %} value="{{ type.pk }}">
+        {% for error in form.type.errors %}
+            <p class="invalid-feedback">{{ error }}</p>
+        {% endfor %}
+    </div>
+{% endfor %}
+
 <input type="submit" class="form-control btn btn-secondary" value="{{ button_text }}">
