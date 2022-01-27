@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
-from django.views.generic import TemplateView, FormView
+from django.views.generic import TemplateView, FormView, UpdateView
 from issue_tracker.models import Task, Type, Status
 from issue_tracker.forms import TaskForm
 from django.urls import reverse
@@ -38,36 +38,13 @@ class NewAddTaskView(FormView):
         return reverse('detail_task', kwargs={'pk': self.task.pk})
 
 
-class EditTaskView(TemplateView):
+class EditTaskView(UpdateView):
     template_name = 'edit_task.html'
+    form_class = TaskForm
+    model = Task
 
-    def get(self, request, *args, **kwargs):
-        task = get_object_or_404(Task, pk=self.kwargs.get('pk'))
-        form = TaskForm(instance=task)
-        return render(request, self.template_name, context={
-            'task': task,
-            'form': form,
-            'statuses': Status.objects.all(),
-            'types': Type.objects.all()
-        })
-
-    def post(self, request, *args, **kwargs):
-        task = get_object_or_404(Task, pk=self.kwargs.get('pk'))
-        form = TaskForm(data=request.POST)
-        if form.is_valid():
-            task.summary = form.cleaned_data['summary']
-            task.description = form.cleaned_data['description']
-            task.status = form.cleaned_data['status']
-            task.type.set(form.cleaned_data['type'])
-            task.save(update_fields=['summary', 'description', 'status', 'updated_at'])
-            return redirect('detail_task', pk=task.pk)
-        return render(request, 'edit_task.html', context={
-            'task': task,
-            'form': form,
-            'errors': form.errors,
-            'statuses': Status.objects.all(),
-            'types': Type.objects.all()
-        })
+    def get_success_url(self):
+        return reverse('detail_task', kwargs={'pk': self.get_object().pk})
 
 
 class DeleteTaskView(View):
