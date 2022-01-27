@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, FormView
 from issue_tracker.models import Task, Type, Status
 from issue_tracker.forms import TaskForm
 from django.urls import reverse
@@ -26,31 +26,16 @@ class DetailTaskView(TaskListView):
         return super().get_context_data(**kwargs)
 
 
-class NewAddTaskView(TemplateView):
+class NewAddTaskView(FormView):
     template_name = 'new_task.html'
+    form_class = TaskForm
 
-    def get_context_data(self, **kwargs):
-        context = super(NewAddTaskView, self).get_context_data(**kwargs)
-        context['statuses'] = Status.objects.all()
-        context['types'] = Type.objects.all()
-        return context
+    def form_valid(self, form):
+        self.task = form.save()
+        return super().form_valid(form)
 
-    def post(self, request, *args, **kwargs):
-        form = TaskForm(data=request.POST)
-        if form.is_valid():
-            type = form.cleaned_data.get('type')
-            task, is_not_new = Task.objects.get_or_create(
-                summary=form.cleaned_data.get('summary'),
-                description=form.cleaned_data.get('description'),
-                status=form.cleaned_data.get('status')
-            )
-            task.type.set(type)
-            url = reverse('detail_task', kwargs={'pk': task.pk})
-            return HttpResponseRedirect(url)
-        return render(request, self.template_name, context={'errors': form.errors,
-                                                            'form': form,
-                                                            'statuses': Status.objects.all(),
-                                                            'types': Type.objects.all()})
+    def get_success_url(self):
+        return reverse('detail_task', kwargs={'pk': self.task.pk})
 
 
 class EditTaskView(TemplateView):

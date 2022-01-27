@@ -1,20 +1,20 @@
 {% csrf_token %}
 <label for="summary">Название задачи</label>
 <input class="form-control {% if form.summary.errors %} is-invalid {% endif %}" id="summary" type="text" name="summary"
-       aria-describedby="summary" value="{{ form.summary.value }}">
+       aria-describedby="summary" value="{{ form.summary.value|default:'' }}">
 {% for error in form.summary.errors %}
     <p class="invalid-feedback">{{ error }}</p>
 {% endfor %}
 <label for="description">Описание</label>
 <textarea class="form-control" cols="30"
           rows="10" id="description"
-          name="description">{{ form.description.value }}</textarea>
+          name="description">{{ form.description.value|default:'' }}</textarea>
 {% for error in form.description.errors %}
     <p class="invalid-feedback">{{ error }}</p>
 {% endfor %}
 <label for="status">Статус</label>
 <select class="form-control" name="status" id="status">
-    {% for status in statuses %}
+    {% for status in form.status.field.queryset %}
         {% if status.pk == form.status.value %}
             <option selected value="{{ status.pk }}">{{ status.status }}</option>
         {% else %}
@@ -22,16 +22,15 @@
         {% endif %}
     {% endfor %}
 </select>
-{% for type in types %}
+<label class="{% if form.type.errors %} is-invalid {% endif %}" for="type">Тип задачи</label>
+{% for type in form.type.field.queryset %}
     <div class="form-check form-switch">
-        <br>
-        <label class="form-check-label" for="type">{{ type.type }}</label>
-        <input class="form-check-input form-control {% if form.type.errors %} is-invalid {% endif %}" id="type"
+        <label class="form-check-label">{{ type.type }}</label>
+        <input class="form-check-input" id="type"
                name="type" type="checkbox" {% if type in task.type.all %} checked {% endif %} value="{{ type.pk }}">
-        {% for error in form.type.errors %}
-            <p class="invalid-feedback">{{ error }}</p>
-        {% endfor %}
     </div>
 {% endfor %}
-
+{% for error in form.type.errors %}
+    <p class="invalid-feedback" id="type">{{ error }}</p>
+{% endfor %}
 <input type="submit" class="form-control btn btn-secondary" value="{{ button_text }}">
