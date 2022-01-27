@@ -1,4 +1,5 @@
 from django.db import models
+from issue_tracker.validators import MinLengthValidator, is_alpha
 
 
 # Create your models here.
@@ -17,14 +18,14 @@ class Type(models.Model):
 
 
 class Task(models.Model):
-    summary = models.CharField(max_length=50, null=False, blank=False)
+    summary = models.CharField(max_length=50, null=False, blank=False, validators=(MinLengthValidator(5), is_alpha, ))
     description = models.TextField(max_length=1000, null=True, blank=True)
     status = models.ForeignKey(Status, on_delete=models.PROTECT)
 
     type = models.ManyToManyField(
         'issue_tracker.Type',
         related_name='tasks',
-        blank=True
+        blank=False
     )
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Время создания")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Время изменения")
