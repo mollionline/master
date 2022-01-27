@@ -1,9 +1,8 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.views import View
-from django.views.generic import TemplateView, FormView, UpdateView
-from issue_tracker.models import Task, Type, Status
+from django.shortcuts import get_object_or_404
+from django.views.generic import TemplateView, FormView, UpdateView, DeleteView
+from issue_tracker.models import Task
 from issue_tracker.forms import TaskForm
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.http import HttpResponseRedirect
 
 
@@ -47,10 +46,7 @@ class EditTaskView(UpdateView):
         return reverse('detail_task', kwargs={'pk': self.get_object().pk})
 
 
-class DeleteTaskView(View):
-    template_name = 'list_task'
+class DeleteTaskView(DeleteView):
+    model = Task
+    success_url = reverse_lazy('list_task')
 
-    def post(self, request, *args, **kwargs):
-        task = get_object_or_404(Task, pk=kwargs.get('pk'))
-        task.delete()
-        return redirect(self.template_name)
