@@ -10,4 +10,4 @@ class TaskForm(forms.ModelForm):
 
 
 class SearchForm(forms.Form):
-    search = forms.CharField(max_length=50, required=False)
+    search = forms.CharField(max_length=60, required=False)

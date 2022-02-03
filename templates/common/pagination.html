@@ -6,14 +6,12 @@
         {% else %}
             <span class="page-disabled">Назад</span>
         {% endif %}
-
         <form class="current-page" method="get">
             <label for="page">
                 Страница <input type="text" name="page" id="page" value="{{ page_obj.number }}">
                 из {{ page_obj.paginator.num_pages }}.
             </label>
         </form>
-
         {% if page_obj.has_next %}
             <a href="?page={{ page_obj.next_page_number }}{% if query %}&{{ query }}{% endif %}">Далее</a>
         {% else %}

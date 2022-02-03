@@ -45,10 +45,8 @@ class TaskListView(ListView):
     def get_queryset(self):
         queryset = super().get_queryset()
         if self.search_value:
-            query = (
-                    Q(summary__icontains=self.search_value) |
-                    Q(description__icontains=self.search_value)
-            )
+            query = (Q(summary__icontains=self.search_value) |
+                     Q(description__icontains=self.search_value))
             queryset = queryset.filter(query)
         return queryset
 
