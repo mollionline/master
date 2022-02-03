@@ -22,6 +22,9 @@
             </div>
         {% endfor %}
     </div>
-
-    {% include 'common/pagination.html' %}
+    {% if is_paginated %}
+        {% include 'common/pagination.html' %}
+    {% elif not object_list %}
+        <h4>Ошибка 404: по данному поиску задачи не найдены</h4>
+    {% endif %}
 {% endblock %}

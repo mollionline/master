@@ -39,7 +39,6 @@ class TaskListView(ListView):
             context['query'] = urlencode({
                 'search': self.search_value
             })
-            print(context)
         return context
 
     def get_queryset(self):
