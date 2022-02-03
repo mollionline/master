@@ -1,5 +1,5 @@
 from django.db import models
-from issue_tracker.validators import MinLengthValidator, is_alpha
+from issue_tracker.validators import MinLengthValidator
 
 
 # Create your models here.
@@ -18,7 +18,7 @@ class Type(models.Model):
 
 
 class Task(models.Model):
-    summary = models.CharField(max_length=50, null=False, blank=False, validators=(MinLengthValidator(5), is_alpha, ))
+    summary = models.CharField(max_length=50, null=False, blank=False, validators=(MinLengthValidator(5), ))
     description = models.TextField(max_length=1000, null=True, blank=True)
     status = models.ForeignKey(Status, on_delete=models.PROTECT)
 
