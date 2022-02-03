@@ -14,7 +14,7 @@
             </ul>
         </div>
 
-        <form class="d-flex" method="get">
+        <form class="d-flex" method="get" action="{% url 'search_results' %}">
             <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Search" name="search"
                    value="{{ form.search.value|default:'' }}">
             <button class="btn btn-outline-success" type="submit">Поиск</button>

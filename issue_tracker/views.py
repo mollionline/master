@@ -1,7 +1,7 @@
 from urllib.parse import urlencode
 
 from django.core.paginator import Paginator
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
 from django.views.generic import TemplateView, FormView, UpdateView, DeleteView, ListView
 from issue_tracker.models import Task
 from issue_tracker.forms import TaskForm, SearchForm
@@ -16,7 +16,22 @@ class TaskListView(ListView):
     model = Task
     ordering = ('-created_at',)
     paginate_by = 10
-    context_object_name = 'tasks'
+    context_object_name = 'object_list'
+
+
+class SearchView(ListView):
+    template_name = 'list_task.html'
+    model = Task
+    paginate_by = 10
+    context_object_name = 'object_list'
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        if self.search_value:
+            query = (Q(summary__icontains=self.search_value) |
+                     Q(description__icontains=self.search_value))
+            queryset = queryset.filter(query)
+        return queryset
 
     def get_search_form(self):
         return SearchForm(self.request.GET)
@@ -31,7 +46,7 @@ class TaskListView(ListView):
         return super().get(request, *args, **kwargs)
 
     def get_context_data(self, *, object_list=None, **kwargs):
-        context = super(TaskListView, self).get_context_data(
+        context = super(SearchView, self).get_context_data(
             **kwargs
         )
         context['form'] = self.form
@@ -40,14 +55,6 @@ class TaskListView(ListView):
                 'search': self.search_value
             })
         return context
-
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        if self.search_value:
-            query = (Q(summary__icontains=self.search_value) |
-                     Q(description__icontains=self.search_value))
-            queryset = queryset.filter(query)
-        return queryset
 
 
 class DetailTaskView(TaskListView):

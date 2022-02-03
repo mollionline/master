@@ -6,7 +6,7 @@
         {% else %}
             <span class="page-disabled">Назад</span>
         {% endif %}
-        <form class="current-page" method="get">
+        <form class="current-page" method="get" action="{% url 'search_results' %}">
             <label for="page">
                 Страница <input type="text" name="page" id="page" value="{{ page_obj.number }}">
                 из {{ page_obj.paginator.num_pages }}.

@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="row row-cols-1 align-items-start">
-        {% for task in tasks %}
+        {% for task in object_list %}
             <div class="col py-3">
                 <div class="card" style="border: 1px solid deepskyblue;">
                     <div class="row">
@@ -25,6 +25,9 @@
     {% if is_paginated %}
         {% include 'common/pagination.html' %}
     {% elif not object_list %}
-        <h4>Ошибка 404: по данному поиску задачи не найдены</h4>
+        <div class="col py-4" style="text-align: center; color: red">
+            <h4>Ошибка 404: по данному поиску: "{{ form.search.value|upper }}"</h4>
+            <h4>задачи не найдены</h4>
+        </div>
     {% endif %}
 {% endblock %}
