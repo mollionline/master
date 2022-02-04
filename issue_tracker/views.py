@@ -39,9 +39,7 @@ class TaskListView(ListView):
         return super().get(request, *args, **kwargs)
 
     def get_context_data(self, *, object_list=None, **kwargs):
-        context = super(TaskListView, self).get_context_data(
-            **kwargs
-        )
+        context = super(TaskListView, self).get_context_data(**kwargs)
         context['form'] = self.form
         if self.search_value:
             context['query'] = urlencode({

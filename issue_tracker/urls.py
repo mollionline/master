@@ -12,3 +12,4 @@ urlpatterns = [
     path('tasks/<int:pk>/delete/', DeleteTaskView.as_view(), name='delete_task'),
     path('tasks/add/', NewAddTaskView.as_view(), name='new_task')
 ]
+
