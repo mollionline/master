@@ -4,6 +4,6 @@
 <h4>Редактировать задачу</h4>
 <form method="POST" action="{% url 'edit_task' task.pk %}" style="margin-top: 20px; width: 70%;">
     {% csrf_token %}
-    {% include 'form_task.html' with button_text='Редактировать' %}
+    {% include 'partial/task/form_task.html' with button_text='Редактировать' %}
 </form>
 {% endblock %}

@@ -1,18 +1,16 @@
 from urllib.parse import urlencode
 
-from django.core.paginator import Paginator
-from django.shortcuts import get_object_or_404, render
-from django.views.generic import TemplateView, FormView, UpdateView, DeleteView, ListView
+from django.shortcuts import get_object_or_404
+from django.views.generic import FormView, UpdateView, DeleteView, ListView
 from issue_tracker.models import Task
 from issue_tracker.forms import TaskForm, SearchForm
 from django.urls import reverse, reverse_lazy
 from django.db.models import Q
-from django.http import HttpResponseRedirect, Http404, HttpResponseNotFound
 
 
 # Create your views here.
 class TaskListView(ListView):
-    template_name = 'list_task.html'
+    template_name = 'task/list_task.html'
     model = Task
     ordering = ('-created_at',)
     paginate_by = 10
@@ -49,7 +47,7 @@ class TaskListView(ListView):
 
 
 class DetailTaskView(TaskListView):
-    template_name = 'detail_task.html'
+    template_name = 'task/detail_task.html'
 
     def get_context_data(self, **kwargs):
         kwargs['task'] = get_object_or_404(Task, pk=self.kwargs.get('pk'))
@@ -57,7 +55,7 @@ class DetailTaskView(TaskListView):
 
 
 class NewAddTaskView(FormView):
-    template_name = 'new_task.html'
+    template_name = 'task/new_task.html'
     form_class = TaskForm
 
     def form_valid(self, form):
@@ -69,7 +67,7 @@ class NewAddTaskView(FormView):
 
 
 class EditTaskView(UpdateView):
-    template_name = 'edit_task.html'
+    template_name = 'task/edit_task.html'
     form_class = TaskForm
     model = Task
 
