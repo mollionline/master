@@ -40,8 +40,7 @@ class NewAddTaskView(CreateView):
         return reverse('detail_project', kwargs={'pk': self.kwargs.get('pk')})
 
     def post(self, request, *args, **kwargs):
-        project_pk = kwargs.get('pk')
-        project = get_object_or_404(Project, pk=project_pk)
+        project = get_object_or_404(Project, pk=kwargs.get('pk'))
         form = self.form_class(data=request.POST)
         if form.is_valid():
             type = form.cleaned_data.get('type')
@@ -59,8 +58,7 @@ class NewAddTaskView(CreateView):
         })
 
     def get(self, request, *args, **kwargs):
-        project_pk = kwargs.get('pk')
-        project = get_object_or_404(Project, pk=project_pk)
+        project = get_object_or_404(Project, pk=kwargs.get('pk'))
         form = self.form_class()
         return render(request, self.template_name, context={
             'project': project,
