@@ -1,0 +1,26 @@
+{% csrf_token %}
+<label for="project">Наименование проекта</label>
+<input class="form-control {% if form.project.errors %} is-invalid {% endif %}" id="project" type="text" name="project"
+       aria-describedby="project" value="{{ form.project.value|default:'' }}">
+{% for error in form.project.errors %}
+    <p class="invalid-feedback">{{ error }}</p>
+{% endfor %}
+<label for="description">Описание</label>
+<textarea class="form-control" cols="30"
+          rows="10" id="description"
+          name="description">{{ form.description.value|default:'' }}</textarea>
+{% for error in form.description.errors %}
+    <p class="invalid-feedback">{{ error }}</p>
+{% endfor %}
+<div class="card {% if form.created_at.errors %} is-invalid {% endif %}">
+    <label for="created_at">Дата начало проекта</label>
+    <input type="date" id='created_at' name="created_at" value="{{ form.created_at.value|date:'Y-m-d'}}">
+</div>
+{% for error in form.created_at.errors %}
+    <p class="invalid-feedback">{{ error }}</p>
+{% endfor %}
+<div class="card">
+    <label for="updated_at">Дата окончание проекта</label>
+    <input type="date" id='updated_at' name="updated_at" value="{{ form.updated_at.value|date:'Y-m-d' }}">
+</div>
+<input type="submit" class="form-control btn btn-secondary" value="{{ button_text }}">

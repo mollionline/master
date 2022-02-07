@@ -1,6 +1,6 @@
 from django import forms
 
-from issue_tracker.models import Task
+from issue_tracker.models import Task, Project
 
 
 class TaskForm(forms.ModelForm):
@@ -11,3 +11,9 @@ class TaskForm(forms.ModelForm):
 
 class SearchForm(forms.Form):
     search = forms.CharField(max_length=60, required=False)
+
+
+class ProjectForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = ['project', 'description', 'created_at', 'updated_at']

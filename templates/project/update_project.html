@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h4>Изменить проект</h4>
+    <form method="POST" action="{% url 'update_project' project.pk %}" style="margin-top: 20px; width: 70%;">
+        {% csrf_token %}
+        {% include 'partial/project/form_project.html' with button_text='Изменить' %}
+    </form>
+{% endblock %}

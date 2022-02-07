@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row row-cols-1 align-items-start">
+        {% for project in projects %}
+            <div class="col py-3">
+                <div class="card" style="border: 1px solid darkgreen;">
+                    <div class="row">
+                        <div class="col-md-8 px-3">
+                            <div class="card-body">
+                                <h5 class="card-title" style="color: darkgreen">{{ project.project }}</h5>
+                                <p>Дата создания: {{ project.created_at|date:'Y.m.d' }}</p>
+                                {% if project.description %}
+                                    <p>Описание: {{ project.description }}</p>
+                                {% else %}
+                                    <p>Описание не задано</p>
+                                {% endif %}
+                                <a class="btn btn-success" href="{% url 'detail_project' project.pk %}"
+                                   class="card-link">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% if is_paginated %}
+        {% include 'common/pagination.html' %}
+    {% elif not projects %}
+        <div class="col py-4" style="text-align: center; color: red">
+            <h4>Ошибка 404: по данному поиску: "{{ form.search.value }}"</h4>
+            <h4>задачи не найдены</h4>
+        </div>
+    {% endif %}
+{% endblock %}

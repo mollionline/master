@@ -16,7 +16,7 @@
             </p>
             <p>Дата создания: {{ task.created_at|date:'d.m.Y G:i' }}</p>
             <p>Дата редактирования: {{ task.updated_at|date:'d.m.Y G:i' }}</p>
-            <a class="btn btn-dark" href="{% url 'list_task' %}">Вернуться в список задач</a>
+            <a class="btn btn-dark" href="{% url 'list_project' %}">Вернуться в список проектов</a>
             <a class="btn btn-success" href="{% url 'edit_task' task.pk %}">Изменить</a>
             <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                     data-bs-target="#exampleModal">Удалить

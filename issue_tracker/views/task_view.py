@@ -1,49 +1,26 @@
-from urllib.parse import urlencode
-
-from django.shortcuts import get_object_or_404
-from django.views.generic import FormView, UpdateView, DeleteView, ListView
-from issue_tracker.models import Task
+from django.shortcuts import get_object_or_404, redirect, render
+from django.views.generic import UpdateView, DeleteView, CreateView
+from issue_tracker.models import Task, Project
 from issue_tracker.forms import TaskForm, SearchForm
 from django.urls import reverse, reverse_lazy
-from django.db.models import Q
+from issue_tracker.helpers import SearchView
 
 
 # Create your views here.
-class TaskListView(ListView):
+class TaskListView(SearchView):
     template_name = 'task/list_task.html'
     model = Task
     ordering = ('-created_at',)
     paginate_by = 10
-    context_object_name = 'object_list'
-
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        if self.search_value:
-            query = (Q(summary__icontains=self.search_value) |
-                     Q(description__icontains=self.search_value))
-            queryset = queryset.filter(query)
-        return queryset
-
-    def get_search_form(self):
-        return SearchForm(self.request.GET)
-
-    def get_search_value(self):
-        if self.form.is_valid():
-            return self.form.cleaned_data.get('search')
-
-    def get(self, request, *args, **kwargs):
-        self.form = self.get_search_form()
-        self.search_value = self.get_search_value()
-        return super().get(request, *args, **kwargs)
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super(TaskListView, self).get_context_data(**kwargs)
-        context['form'] = self.form
-        if self.search_value:
-            context['query'] = urlencode({
-                'search': self.search_value
-            })
-        return context
+    context_object_name = 'tasks'
+    search_form = SearchForm
+    search_fields = {
+        'summary': 'icontains',
+        'description': 'startswith'
+    }
+    extra_context = {
+        'title': 'Список задач'
+    }
 
 
 class DetailTaskView(TaskListView):
@@ -54,16 +31,41 @@ class DetailTaskView(TaskListView):
         return super().get_context_data(**kwargs)
 
 
-class NewAddTaskView(FormView):
-    template_name = 'task/new_task.html'
+class NewAddTaskView(CreateView):
+    model = Task
     form_class = TaskForm
-
-    def form_valid(self, form):
-        self.task = form.save()
-        return super().form_valid(form)
+    template_name = 'project/detail_project.html'
 
     def get_success_url(self):
-        return reverse('detail_task', kwargs={'pk': self.task.pk})
+        return reverse('detail_project', kwargs={'pk': self.kwargs.get('pk')})
+
+    def post(self, request, *args, **kwargs):
+        project_pk = kwargs.get('pk')
+        project = get_object_or_404(Project, pk=project_pk)
+        form = self.form_class(data=request.POST)
+        if form.is_valid():
+            type = form.cleaned_data.get('type')
+            task, is_not_new = Task.objects.get_or_create(
+                summary=form.cleaned_data.get('summary'),
+                description=form.cleaned_data.get('description'),
+                status=form.cleaned_data.get('status'),
+                project=project
+            )
+            task.type.set(type)
+            return redirect(self.get_success_url())
+        return render(request, self.template_name, context={
+            'project': project,
+            'form': form
+        })
+
+    def get(self, request, *args, **kwargs):
+        project_pk = kwargs.get('pk')
+        project = get_object_or_404(Project, pk=project_pk)
+        form = self.form_class()
+        return render(request, self.template_name, context={
+            'project': project,
+            'form': form
+        })
 
 
 class EditTaskView(UpdateView):
@@ -77,4 +79,4 @@ class EditTaskView(UpdateView):
 
 class DeleteTaskView(DeleteView):
     model = Task
-    success_url = reverse_lazy('list_task')
+    success_url = reverse_lazy('list_project')

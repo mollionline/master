@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title">Наименование проекта: {{ project.project }}</div>
+            {% if project.description %}
+                <p>Описание проекта: {{ project.description }}</p>
+            {% else %}
+                <p>Описание проекта не задано</p>
+            {% endif %}
+            {% if project.created_at %}
+                <p>Дата начало: {{ project.created_at|date:'d.m.Y G:i' }}</p>
+            {% else %}
+                <p>Дата начало не задано</p>
+            {% endif %}
+            {% if project.updated_at %}
+                <p>Дата окончания: {{ project.updated_at|date:'d.m.Y G:i' }}</p>
+            {% else %}
+                <p>Дата окончания не задано</p>
+            {% endif %}
+
+            <a class="btn btn-dark" href="{% url 'list_project' %}">Вернуться в список проектов</a>
+            <a class="btn btn-success" href="{% url 'update_project' project.pk %}">Изменить</a>
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal">Удалить
+            </button>
+            <form action="{% url 'new_task' project.pk %}" method="post">
+                {% include 'partial/task/form_task.html' with button_text='Создать' %}
+            </form>
+
+        </div>
+    </div>
+    {% include 'common/delete_modal_project.html' with deleted_object=project %}
+    {% if project.tasks %}
+        {% include 'partial/task/list_task_project.html' with tasks=project.tasks.all %}
+    {% endif %}
+{% endblock %}

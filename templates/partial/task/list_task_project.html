@@ -1,6 +1,4 @@
-{% extends 'base.html' %}
 {% block content %}
-    <title>{{ title }}</title>
     <div class="row row-cols-1 align-items-start">
         {% for task in tasks %}
             <div class="col py-3">
@@ -20,14 +18,8 @@
                     </div>
                 </div>
             </div>
+        {% empty %}
+            <h5>Задачи отсутствуют</h5>
         {% endfor %}
     </div>
-    {% if is_paginated %}
-        {% include 'common/pagination.html' %}
-    {% elif not tasks %}
-        <div class="col py-4" style="text-align: center; color: red">
-            <h4>Ошибка 404: по данному поиску: "{{ form.search.value }}"</h4>
-            <h4>задачи не найдены</h4>
-        </div>
-    {% endif %}
 {% endblock %}
