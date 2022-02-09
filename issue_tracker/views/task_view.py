@@ -77,4 +77,9 @@ class EditTaskView(UpdateView):
 
 class DeleteTaskView(DeleteView):
     model = Task
-    success_url = reverse_lazy('list_project')
+
+    def get(self, request, *args, **kwargs):
+        return self.delete()
+
+    def get_success_url(self):
+        return reverse('detail_project', kwargs={'pk': self.object.project.pk})
