@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models.deletion import get_candidate_relations_to_delete
+
 from issue_tracker.validators import MinLengthValidator
 
 
@@ -28,6 +30,12 @@ class Task(models.Model):
     status = models.ForeignKey(Status, on_delete=models.PROTECT)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Время создания")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Время изменения")
+    is_deleted = models.BooleanField(default=False)
+    objects = CustomModelManager()
+
+    def delete(self, using=None, keep_parents=False):
+        self.is_deleted = True
+        self.save(update_fields=['is_deleted', ])
 
     type = models.ManyToManyField(
         'issue_tracker.Type',
@@ -57,6 +65,12 @@ class Project(models.Model):
 
     def delete(self, using=None, keep_parents=False):
         self.is_deleted = True
+        delete_candidates = get_candidate_relations_to_delete(self.__class__._meta)
+        if delete_candidates:
+            for rel in delete_candidates:
+                if rel.on_delete.__name__ == 'CASCADE' and rel.one_to_many and not rel.hidden:
+                    for item in getattr(self, rel.related_name).all():
+                        item.delete()
         self.save(update_fields=['is_deleted', ])
 
     def __str__(self):
