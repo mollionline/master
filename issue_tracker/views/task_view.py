@@ -72,7 +72,7 @@ class EditTaskView(UpdateView):
     model = Task
 
     def get_success_url(self):
-        return reverse('detail_task', kwargs={'pk': self.get_object().pk})
+        return reverse('detail_project', kwargs={'pk': self.object.project.pk})
 
 
 class DeleteTaskView(DeleteView):
