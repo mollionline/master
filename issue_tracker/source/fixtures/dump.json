@@ -1347,13 +1347,59 @@
     }
 },
 {
+    "model": "issue_tracker.task",
+    "pk": 120,
+    "fields": {
+        "summary": "DDDDDD",
+        "description": "",
+        "status": 1,
+        "created_at": "2022-02-09T15:51:19.229Z",
+        "updated_at": "2022-02-09T15:51:19.229Z",
+        "project": 10,
+        "type": [
+            1
+        ]
+    }
+},
+{
+    "model": "issue_tracker.task",
+    "pk": 121,
+    "fields": {
+        "summary": "DDDDDD888",
+        "description": "",
+        "status": 2,
+        "created_at": "2022-02-09T16:05:19.235Z",
+        "updated_at": "2022-02-09T16:05:32.389Z",
+        "project": 14,
+        "type": [
+            1
+        ]
+    }
+},
+{
+    "model": "issue_tracker.task",
+    "pk": 122,
+    "fields": {
+        "summary": "Задача 8",
+        "description": "ыыыы",
+        "status": 1,
+        "created_at": "2022-02-09T16:09:28.603Z",
+        "updated_at": "2022-02-09T16:09:28.603Z",
+        "project": 20,
+        "type": [
+            1
+        ]
+    }
+},
+{
     "model": "issue_tracker.project",
     "pk": 1,
     "fields": {
         "project": "Приложение для ресторана",
         "description": null,
         "created_at": null,
-        "updated_at": null
+        "updated_at": null,
+        "is_deleted": false
     }
 },
 {
@@ -1363,17 +1409,8 @@
         "project": "Новый проект",
         "description": "",
         "created_at": "2022-02-09T18:00:00Z",
-        "updated_at": "2022-02-19T18:00:00Z"
-    }
-},
-{
-    "model": "issue_tracker.project",
-    "pk": 4,
-    "fields": {
-        "project": "Новый проект 2",
-        "description": "",
-        "created_at": "2022-02-18T18:00:00Z",
-        "updated_at": null
+        "updated_at": "2022-02-19T18:00:00Z",
+        "is_deleted": false
     }
 },
 {
@@ -1383,7 +1420,8 @@
         "project": "Новый проект 4",
         "description": "",
         "created_at": "2022-02-06T18:00:00Z",
-        "updated_at": null
+        "updated_at": null,
+        "is_deleted": false
     }
 },
 {
@@ -1393,37 +1431,8 @@
         "project": "Старый проект",
         "description": "",
         "created_at": "2022-02-08T18:00:00Z",
-        "updated_at": null
-    }
-},
-{
-    "model": "issue_tracker.project",
-    "pk": 8,
-    "fields": {
-        "project": "Новый проект 3",
-        "description": "",
-        "created_at": "2022-02-12T18:00:00Z",
-        "updated_at": "2022-02-19T18:00:00Z"
-    }
-},
-{
-    "model": "issue_tracker.project",
-    "pk": 10,
-    "fields": {
-        "project": "Новый проект 5",
-        "description": "",
-        "created_at": "2022-02-19T18:00:00Z",
-        "updated_at": "2022-02-19T18:00:00Z"
-    }
-},
-{
-    "model": "issue_tracker.project",
-    "pk": 11,
-    "fields": {
-        "project": "Новый проект 3555",
-        "description": "",
-        "created_at": "2022-02-12T18:00:00Z",
-        "updated_at": null
+        "updated_at": null,
+        "is_deleted": false
     }
 },
 {
@@ -1433,7 +1442,74 @@
         "project": "Новый проект 6",
         "description": "",
         "created_at": "2022-02-11T18:00:00Z",
-        "updated_at": null
+        "updated_at": null,
+        "is_deleted": false
+    }
+},
+{
+    "model": "issue_tracker.project",
+    "pk": 14,
+    "fields": {
+        "project": "Новый проект 3",
+        "description": "",
+        "created_at": "2022-02-12T18:00:00Z",
+        "updated_at": null,
+        "is_deleted": false
+    }
+},
+{
+    "model": "issue_tracker.project",
+    "pk": 15,
+    "fields": {
+        "project": "Новый проект 8",
+        "description": "",
+        "created_at": "2022-02-07T18:00:00Z",
+        "updated_at": "2022-02-26T18:00:00Z",
+        "is_deleted": false
+    }
+},
+{
+    "model": "issue_tracker.project",
+    "pk": 16,
+    "fields": {
+        "project": "Новый проект 9",
+        "description": "",
+        "created_at": "2022-02-08T18:00:00Z",
+        "updated_at": null,
+        "is_deleted": false
+    }
+},
+{
+    "model": "issue_tracker.project",
+    "pk": 17,
+    "fields": {
+        "project": "Новый проект 45",
+        "description": "",
+        "created_at": "2022-02-10T18:00:00Z",
+        "updated_at": null,
+        "is_deleted": false
+    }
+},
+{
+    "model": "issue_tracker.project",
+    "pk": 18,
+    "fields": {
+        "project": "Новый проект 55",
+        "description": "",
+        "created_at": "2022-02-11T18:00:00Z",
+        "updated_at": null,
+        "is_deleted": false
+    }
+},
+{
+    "model": "issue_tracker.project",
+    "pk": 19,
+    "fields": {
+        "project": "Новый проект 5",
+        "description": "",
+        "created_at": "2022-02-12T18:00:00Z",
+        "updated_at": null,
+        "is_deleted": false
     }
 },
 {
@@ -1441,7 +1517,7 @@
     "pk": 1,
     "fields": {
         "password": "pbkdf2_sha256$320000$8C1oHrABAvHXTXktKT7zH4$uDcaFaVRUoc7E68IQnx1DVdL5XrY3HsIu9Vq4jy/M0E=",
-        "last_login": "2022-01-19T15:23:30.408Z",
+        "last_login": "2022-02-07T15:52:47.156Z",
         "is_superuser": true,
         "username": "admin",
         "first_name": "",

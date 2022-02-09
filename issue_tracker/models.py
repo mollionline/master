@@ -2,6 +2,11 @@ from django.db import models
 from issue_tracker.validators import MinLengthValidator
 
 
+class CustomModelManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(is_deleted=False)
+
+
 # Create your models here.
 class Status(models.Model):
     status = models.CharField(max_length=50, null=False, blank=False, unique=True)
@@ -47,6 +52,12 @@ class Project(models.Model):
     description = models.TextField(max_length=1000, null=True, blank=True)
     created_at = models.DateTimeField(null=True, blank=False)
     updated_at = models.DateTimeField(null=True, blank=True)
+    is_deleted = models.BooleanField(default=False)
+    objects = CustomModelManager()
+
+    def delete(self, using=None, keep_parents=False):
+        self.is_deleted = True
+        self.save(update_fields=['is_deleted', ])
 
     def __str__(self):
         return f'{self.project}'
