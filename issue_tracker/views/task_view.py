@@ -71,12 +71,22 @@ class EditTaskView(UpdateView):
     form_class = TaskForm
     model = Task
 
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('login')
+        return super().dispatch(request, *args, **kwargs)
+
     def get_success_url(self):
         return reverse('detail_project', kwargs={'pk': self.object.project.pk})
 
 
 class DeleteTaskView(DeleteView):
     model = Task
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('login')
+        return super().dispatch(request, *args, **kwargs)
 
     def get(self, request, *args, **kwargs):
         return self.delete()

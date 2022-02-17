@@ -15,6 +15,21 @@
                     <a class="nav-link {% if request.path == '/projects/add/' %} active {% endif %}" aria-current="page"
                        href="{% url 'create_project' %}">Добавить проект</a>
                 </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page"
+                           href="">Привет, {{ user.username }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page"
+                           href="{% url 'logout' %}">Выйти</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page"
+                           href="{% url 'login' %}">Войти</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
         <form class="d-flex" method="get">

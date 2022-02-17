@@ -1,7 +1,6 @@
 {% csrf_token %}
 
 <div class="col-mt-3 py-4">
-<h4 style="text-align: center">Создание задачи для данного проекта</h4>
     <label for="summary">Название задачи</label>
 <input class="form-control {% if form.summary.errors %} is-invalid {% endif %}" id="summary" type="text" name="summary"
        aria-describedby="summary" value="{{ form.summary.value|default:'' }}">
