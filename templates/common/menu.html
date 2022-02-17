@@ -18,7 +18,7 @@
                 {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page"
-                           href="">Привет, {{ user.username }}</a>
+                           href="">Привет, {{ user.username|capfirst }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == '/accounts/logout/' %} active {% endif %}" aria-current="page"
