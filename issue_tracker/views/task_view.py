@@ -4,6 +4,7 @@ from issue_tracker.models import Task, Project
 from issue_tracker.forms import TaskForm, SearchForm
 from django.urls import reverse, reverse_lazy
 from issue_tracker.helpers import SearchView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 # Create your views here.
@@ -66,27 +67,17 @@ class NewAddTaskView(CreateView):
         })
 
 
-class EditTaskView(UpdateView):
+class EditTaskView(LoginRequiredMixin, UpdateView):
     template_name = 'task/edit_task.html'
     form_class = TaskForm
     model = Task
-
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_authenticated:
-            return redirect('login')
-        return super().dispatch(request, *args, **kwargs)
 
     def get_success_url(self):
         return reverse('detail_project', kwargs={'pk': self.object.project.pk})
 
 
-class DeleteTaskView(DeleteView):
+class DeleteTaskView(LoginRequiredMixin, DeleteView):
     model = Task
-
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_authenticated:
-            return redirect('login')
-        return super().dispatch(request, *args, **kwargs)
 
     def get(self, request, *args, **kwargs):
         return self.delete()

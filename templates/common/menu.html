@@ -21,12 +21,12 @@
                            href="">Привет, {{ user.username }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"
+                        <a class="nav-link {% if request.path == '/accounts/logout/' %} active {% endif %}" aria-current="page"
                            href="{% url 'logout' %}">Выйти</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"
+                        <a class="nav-link {% if request.path == '/accounts/login/' %} active {% endif %}" aria-current="page"
                            href="{% url 'login' %}">Войти</a>
                     </li>
                 {% endif %}

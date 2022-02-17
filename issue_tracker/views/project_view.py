@@ -22,16 +22,11 @@ class ListProjectView(SearchView):
     }
 
 
-class CreateProjectView(CreateView):
+class CreateProjectView(LoginRequiredMixin, CreateView):
     model = Project
     template_name = 'project/create_project.html'
     fields = ['project', 'description', 'created_at']
     success_url = ''
-
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_authenticated:
-            return redirect('login')
-        return super().dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
         self.project = form.save()
@@ -41,14 +36,9 @@ class CreateProjectView(CreateView):
         return reverse('detail_project', kwargs={'pk': self.project.pk})
 
 
-class DeleteProjectView(DeleteView):
+class DeleteProjectView(LoginRequiredMixin, DeleteView):
     model = Project
     success_url = reverse_lazy('list_project')
-
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_authenticated:
-            return redirect('login')
-        return super().dispatch(request, *args, **kwargs)
 
 
 class DetailProjectView(DetailView):
@@ -57,15 +47,10 @@ class DetailProjectView(DetailView):
     template_name = 'project/detail_project.html'
 
 
-class UpdateProjectView(UpdateView):
+class UpdateProjectView(LoginRequiredMixin, UpdateView):
     template_name = 'project/update_project.html'
     model = Project
     form_class = ProjectForm
-
-    def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_authenticated:
-            return redirect('login')
-        return super().dispatch(request, *args, **kwargs)
 
     def get_success_url(self):
         return reverse('detail_project', kwargs={'pk': self.get_object().pk})
