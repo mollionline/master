@@ -29,6 +29,10 @@
                         <a class="nav-link {% if request.path == '/accounts/login/' %} active {% endif %}" aria-current="page"
                            href="{% url 'login' %}">Войти</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/accounts/register/' %} active {% endif %}" aria-current="page"
+                           href="{% url 'register' %}">Зарегистрироваться</a>
+                    </li>
                 {% endif %}
             </ul>
         </div>

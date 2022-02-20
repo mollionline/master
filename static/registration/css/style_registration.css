@@ -1,0 +1,23 @@
+.form-auth {
+    background-color: #d9dde7;
+}
+
+.register_form {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.register_form_under_div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    text-align: left;
+}
