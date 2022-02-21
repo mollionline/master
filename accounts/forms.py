@@ -1,6 +1,5 @@
 from django import forms
 from django.contrib.auth.models import User
-from django.core.exceptions import ValidationError
 
 
 class UserCreationForm(forms.ModelForm):
@@ -10,8 +9,12 @@ class UserCreationForm(forms.ModelForm):
     email = forms.EmailField(
         label='email', required=True
     )
+    last_name = forms.CharField(
+        label='Фамилия', strip=False, required=False
+    )
     password = forms.CharField(
-        label='Пароль', strip=False, required=True, widget=forms.PasswordInput
+        label='Пароль', strip=False, required=True,
+        widget=forms.PasswordInput
     )
     password_confirm = forms.CharField(
         label='Подтвердить пароль', strip=False, required=True, widget=forms.PasswordInput
@@ -22,7 +25,8 @@ class UserCreationForm(forms.ModelForm):
         password = cleaned_data.get('password')
         password_confirm = cleaned_data.get('password_confirm')
         if password and password_confirm and password != password_confirm:
-            raise ValidationError('Пароли не совпадают!')
+            self.add_error('password', 'Пароли не совпадают')
+        return cleaned_data
 
     def save(self, commit=True):
         user = super().save(commit=False)

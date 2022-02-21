@@ -6,39 +6,49 @@
                 <h4>Регистрация</h4>
                 <form action="{% url 'register' %}" method="post" class="text-center">
                     {% csrf_token %}
-                    {% if form.errors %}
-                        <div class="alert alert-danger" role="alert">
-                            <div>{{ form.errors }}</div>
-                        </div>
-                    {% endif %}
                     <div class="form-group">
                         <label for="username" class="form-label col-3">Логин</label>
-                        <input class="form-control" type="text"
-                               name='username' id="username">
+                        <input class="form-control {% if form.username.errors %} is-invalid {% endif %}" type="text"
+                               name='username' id="username" value="{{ form.username.value|default:'' }}">
+                        {% for error in form.username.errors %}
+                            <p class="invalid-feedback">{{ error }}</p>
+                        {% endfor %}
                     </div>
                     <div class="form-group">
                         <label for="email" class="form-label col-3">Email</label>
-                        <input class="form-control" type="email"
-                               name='email' id="email">
+                        <input class="form-control {% if form.email.errors %} is-invalid {% endif %}" type="email"
+                               name='email' id="email" value="{{ form.email.value|default:'' }}">
+                        {% for error in form.email.errors %}
+                            <p class="invalid-feedback">{{ error }}</p>
+                        {% endfor %}
                     </div>
                     <div class="form-group">
                         <label for="first_name" class="form-label col-3">Имя</label>
-                        <input class="form-control" type="text"
-                               name='first_name' id="first_name">
+                        <input class="form-control {% if form.first_name.errors %} is-invalid {% endif %}" type="text"
+                               name='first_name' id="first_name" value="{{ form.first_name.value|default:'' }}">
+                        {% for error in form.first_name.errors %}
+                            <p class="invalid-feedback">{{ error }}</p>
+                        {% endfor %}
                     </div>
                     <div class="form-group">
                         <label for="last_name" class="form-label col-3">Фамилия</label>
-                        <input class="form-control" type="text" name='last_name' id="last_name">
+                        <input class="form-control" type="text" name='last_name' id="last_name" value="{{ form.last_name.value|default:'' }}">
                     </div>
                     <div class="form-group">
                         <label for="password" class="form-label col-3">Пароль</label>
-                        <input class="form-control" type="password"
-                               name="password" id="password">
+                        <input class="form-control {% if form.password.errors %} is-invalid {% endif %}" type="password"
+                               name="password" id="password" value="{{ form.password.value|default:'' }}">
+                        {% for error in form.password.errors %}
+                            <p class="invalid-feedback">{{ error }}</p>
+                        {% endfor %}
                     </div>
                     <div class="form-group">
                         <label for="password_confirm" class="form-label col-3">Повторите пароль</label>
-                        <input class="form-control"
-                               type="password" name="password_confirm" id="password_confirm">
+                        <input class="form-control {% if form.password_confirm.errors %} is-invalid {% endif %}"
+                               type="password" name="password_confirm" id="password_confirm" value="{{ form.password_confirm.value|default:'' }}">
+                        {% for error in form.password_confirm.errors %}
+                            <p class="invalid-feedback">{{ error }}</p>
+                        {% endfor %}
                     </div>
                     <div class="form-group">
                         <button class="btn btn-success" type="submit">Регистрация</button>

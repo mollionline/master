@@ -1,5 +1,4 @@
-from django.shortcuts import redirect
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse
 from django.views.generic import CreateView, DeleteView, DetailView, UpdateView
 from issue_tracker.models import Project
 from issue_tracker.helpers import SearchView
@@ -38,7 +37,12 @@ class CreateProjectView(LoginRequiredMixin, CreateView):
 
 class DeleteProjectView(LoginRequiredMixin, DeleteView):
     model = Project
-    success_url = reverse_lazy('list_project')
+
+    def get(self, request, *args, **kwargs):
+        return self.delete(request=request)
+
+    def get_success_url(self):
+        return reverse('list_project')
 
 
 class DetailProjectView(DetailView):

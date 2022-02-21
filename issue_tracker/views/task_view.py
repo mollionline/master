@@ -80,7 +80,7 @@ class DeleteTaskView(LoginRequiredMixin, DeleteView):
     model = Task
 
     def get(self, request, *args, **kwargs):
-        return self.delete()
+        return self.delete(request=request)
 
     def get_success_url(self):
         return reverse('detail_project', kwargs={'pk': self.object.project.pk})
