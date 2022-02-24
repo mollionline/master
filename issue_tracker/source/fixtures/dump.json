@@ -43,15 +43,32 @@
 },
 {
     "model": "issue_tracker.task",
+    "pk": 2,
+    "fields": {
+        "summary": "Задача 88",
+        "description": "",
+        "status": 1,
+        "created_at": "2022-02-24T14:09:57.871Z",
+        "updated_at": "2022-02-24T15:52:00.870Z",
+        "is_deleted": false,
+        "project": 15,
+        "type": [
+            1,
+            2
+        ]
+    }
+},
+{
+    "model": "issue_tracker.task",
     "pk": 3,
     "fields": {
-        "summary": "Создать миграцию",
-        "description": "Создать приложение задач для отслеживания работ программистов",
+        "summary": "DDDDDD12",
+        "description": "",
         "status": 1,
-        "created_at": "2022-01-19T15:32:32.032Z",
-        "updated_at": "2022-02-07T07:05:17.770Z",
+        "created_at": "2022-02-24T14:39:42.425Z",
+        "updated_at": "2022-02-24T14:39:42.425Z",
         "is_deleted": false,
-        "project": 1,
+        "project": 15,
         "type": [
             1
         ]
@@ -61,29 +78,13 @@
     "model": "issue_tracker.task",
     "pk": 4,
     "fields": {
-        "summary": "Создать суперадмин",
-        "description": "Создать приложение задач для отслеживания работ программистов",
+        "summary": "DDDDDD123",
+        "description": "",
         "status": 1,
-        "created_at": "2022-01-19T15:32:57.758Z",
-        "updated_at": "2022-01-19T15:32:57.758Z",
+        "created_at": "2022-02-24T14:40:39.161Z",
+        "updated_at": "2022-02-24T14:40:39.161Z",
         "is_deleted": false,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 5,
-    "fields": {
-        "summary": "Создать фикстуру базы данных",
-        "description": "Создать приложение задач для отслеживания работ программистов",
-        "status": 1,
-        "created_at": "2022-01-19T15:33:28.689Z",
-        "updated_at": "2022-01-19T15:33:28.689Z",
-        "is_deleted": false,
-        "project": 1,
+        "project": 15,
         "type": [
             1
         ]
@@ -93,29 +94,13 @@
     "model": "issue_tracker.task",
     "pk": 6,
     "fields": {
-        "summary": "Создать миграцию",
-        "description": "Создать приложение задач для отслеживания работ программистов",
-        "status": 2,
-        "created_at": "2022-01-19T15:33:43.553Z",
-        "updated_at": "2022-01-19T15:33:43.553Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 7,
-    "fields": {
-        "summary": "Создать GRUD для задачи",
-        "description": "Создать приложение задач для отслеживания работ программистов",
+        "summary": "DDDDDD12",
+        "description": "",
         "status": 1,
-        "created_at": "2022-01-19T15:34:32.554Z",
-        "updated_at": "2022-01-19T15:34:32.554Z",
+        "created_at": "2022-02-24T16:12:21.564Z",
+        "updated_at": "2022-02-24T16:55:10.812Z",
         "is_deleted": false,
-        "project": 1,
+        "project": 35,
         "type": [
             1
         ]
@@ -125,1383 +110,95 @@
     "model": "issue_tracker.task",
     "pk": 8,
     "fields": {
-        "summary": "Исправить ошибки при создании задачи",
-        "description": "Создать приложение задач для отслеживания работ программистов",
+        "summary": "DDDDDD",
+        "description": "",
         "status": 1,
-        "created_at": "2022-01-19T15:34:57.466Z",
-        "updated_at": "2022-01-24T15:21:14.598Z",
+        "created_at": "2022-02-24T16:15:57.730Z",
+        "updated_at": "2022-02-24T16:15:57.730Z",
         "is_deleted": false,
-        "project": 1,
-        "type": [
-            2
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 9,
-    "fields": {
-        "summary": "Улучшить главную страницу с бутстрапом",
-        "description": "Создать приложение задач для отслеживания работ программистов",
-        "status": 2,
-        "created_at": "2022-01-19T15:35:25.049Z",
-        "updated_at": "2022-02-02T15:57:44.448Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": [
-            3
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 10,
-    "fields": {
-        "summary": "Создать приложение Issue Tracker",
-        "description": "Создать приложение задач для отслеживания работ программистов",
-        "status": 2,
-        "created_at": "2022-01-19T15:32:01.996Z",
-        "updated_at": "2022-01-19T15:32:01.996Z",
-        "is_deleted": false,
-        "project": 1,
+        "project": 34,
         "type": [
             1
         ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 11,
-    "fields": {
-        "summary": "Создать миграцию",
-        "description": "Работа по планированию выполнена",
-        "status": 1,
-        "created_at": "2022-01-19T15:32:32.032Z",
-        "updated_at": "2022-01-19T15:32:32.032Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 12,
-    "fields": {
-        "summary": "Создать суперадмин",
-        "description": "Работа по планированию выполнена",
-        "status": 1,
-        "created_at": "2022-01-19T15:32:57.758Z",
-        "updated_at": "2022-01-19T15:32:57.758Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 13,
-    "fields": {
-        "summary": "Создать фикстуру базы данных",
-        "description": "Работа по планированию выполнена",
-        "status": 1,
-        "created_at": "2022-01-19T15:33:28.689Z",
-        "updated_at": "2022-01-19T15:33:28.689Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 14,
-    "fields": {
-        "summary": "Создать миграцию",
-        "description": "Работа по планированию выполнена",
-        "status": 2,
-        "created_at": "2022-01-19T15:33:43.553Z",
-        "updated_at": "2022-01-19T15:33:43.553Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 15,
-    "fields": {
-        "summary": "Создать GRUD для задачи",
-        "description": "Работа по планированию выполнена",
-        "status": 1,
-        "created_at": "2022-01-19T15:34:32.554Z",
-        "updated_at": "2022-02-07T10:40:40.440Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 16,
-    "fields": {
-        "summary": "Создать фикстуру базы данных",
-        "description": "Работа по планированию выполнена",
-        "status": 1,
-        "created_at": "2022-01-19T15:33:28.689Z",
-        "updated_at": "2022-01-19T15:33:28.689Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 17,
-    "fields": {
-        "summary": "Создать миграцию",
-        "description": "Работа по планированию выполнена",
-        "status": 2,
-        "created_at": "2022-01-19T15:33:43.553Z",
-        "updated_at": "2022-01-19T15:33:43.553Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 18,
-    "fields": {
-        "summary": "Создать GRUD для задачи",
-        "description": "Работа по планированию выполнена",
-        "status": 1,
-        "created_at": "2022-01-19T15:34:32.554Z",
-        "updated_at": "2022-02-07T10:40:52.231Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 19,
-    "fields": {
-        "summary": "Исправить ошибки при создании задачи",
-        "description": "Работа по планированию выполнена",
-        "status": 1,
-        "created_at": "2022-01-19T15:34:57.466Z",
-        "updated_at": "2022-02-07T10:38:49.353Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 21,
-    "fields": {
-        "summary": "Создать приложение Issue Tracker",
-        "description": "Работа по планированию выполнена",
-        "status": 2,
-        "created_at": "2022-01-19T15:32:01.996Z",
-        "updated_at": "2022-01-19T15:32:01.996Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 22,
-    "fields": {
-        "summary": "Создать миграцию",
-        "description": "Все молодцы",
-        "status": 1,
-        "created_at": "2022-01-19T15:32:32.032Z",
-        "updated_at": "2022-01-19T15:32:32.032Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 23,
-    "fields": {
-        "summary": "Создать суперадмин",
-        "description": "Все молодцы",
-        "status": 1,
-        "created_at": "2022-01-19T15:32:57.758Z",
-        "updated_at": "2022-01-19T15:32:57.758Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 24,
-    "fields": {
-        "summary": "Создать фикстуру базы данных",
-        "description": "Все молодцы",
-        "status": 1,
-        "created_at": "2022-01-19T15:33:28.689Z",
-        "updated_at": "2022-01-19T15:33:28.689Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 25,
-    "fields": {
-        "summary": "Создать миграцию",
-        "description": "Все молодцы",
-        "status": 2,
-        "created_at": "2022-01-19T15:33:43.553Z",
-        "updated_at": "2022-01-19T15:33:43.553Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 27,
-    "fields": {
-        "summary": "Создать фикстуру базы данных",
-        "description": "Все молодцы",
-        "status": 1,
-        "created_at": "2022-01-19T15:33:28.689Z",
-        "updated_at": "2022-01-19T15:33:28.689Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 28,
-    "fields": {
-        "summary": "Создать миграцию",
-        "description": "Все молодцы",
-        "status": 2,
-        "created_at": "2022-01-19T15:33:43.553Z",
-        "updated_at": "2022-01-19T15:33:43.553Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 32,
-    "fields": {
-        "summary": "Создать приложение Issue Tracker",
-        "description": "Все молодцы",
-        "status": 2,
-        "created_at": "2022-01-19T15:32:01.996Z",
-        "updated_at": "2022-01-19T15:32:01.996Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 33,
-    "fields": {
-        "summary": "Создать миграцию",
-        "description": "Все молодцы",
-        "status": 1,
-        "created_at": "2022-01-19T15:32:32.032Z",
-        "updated_at": "2022-01-19T15:32:32.032Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 34,
-    "fields": {
-        "summary": "Создать суперадмин",
-        "description": "Пойдемте в пятницу гулять, мы заслужили",
-        "status": 1,
-        "created_at": "2022-01-19T15:32:57.758Z",
-        "updated_at": "2022-01-19T15:32:57.758Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 35,
-    "fields": {
-        "summary": "Создать фикстуру базы данных",
-        "description": "Пойдемте в пятницу гулять, мы заслужили",
-        "status": 1,
-        "created_at": "2022-01-19T15:33:28.689Z",
-        "updated_at": "2022-01-19T15:33:28.689Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 36,
-    "fields": {
-        "summary": "Создать миграцию",
-        "description": "Пойдемте в пятницу гулять, мы заслужили",
-        "status": 2,
-        "created_at": "2022-01-19T15:33:43.553Z",
-        "updated_at": "2022-01-19T15:33:43.553Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 37,
-    "fields": {
-        "summary": "Создать GRUD для задачи",
-        "description": "Пойдемте в пятницу гулять, мы заслужили",
-        "status": 1,
-        "created_at": "2022-01-19T15:34:32.554Z",
-        "updated_at": "2022-02-07T10:41:25.991Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 38,
-    "fields": {
-        "summary": "Создать фикстуру базы данных",
-        "description": "Пойдемте в пятницу гулять, мы заслужили",
-        "status": 1,
-        "created_at": "2022-01-19T15:33:28.689Z",
-        "updated_at": "2022-01-19T15:33:28.689Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 39,
-    "fields": {
-        "summary": "Создать миграцию",
-        "description": "Пойдемте в пятницу гулять, мы заслужили",
-        "status": 2,
-        "created_at": "2022-01-19T15:33:43.553Z",
-        "updated_at": "2022-01-19T15:33:43.553Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 40,
-    "fields": {
-        "summary": "Создать GRUD для задачи",
-        "description": "Пойдемте в пятницу гулять, мы заслужили",
-        "status": 1,
-        "created_at": "2022-01-19T15:34:32.554Z",
-        "updated_at": "2022-02-07T10:41:37.136Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 41,
-    "fields": {
-        "summary": "Исправить ошибки при создании задачи",
-        "description": "Пойдемте в пятницу гулять, мы заслужили",
-        "status": 1,
-        "created_at": "2022-01-19T15:34:57.466Z",
-        "updated_at": "2022-02-07T10:39:04.609Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 42,
-    "fields": {
-        "summary": "Улучшить главную страницу с бутстрапом",
-        "description": "Пойдемте в пятницу гулять, мы заслужили",
-        "status": 2,
-        "created_at": "2022-01-19T15:35:25.049Z",
-        "updated_at": "2022-02-07T10:38:16.687Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 43,
-    "fields": {
-        "summary": "Создать приложение Issue Tracker",
-        "description": "Пойдемте в пятницу гулять, мы заслужили",
-        "status": 2,
-        "created_at": "2022-01-19T15:32:01.996Z",
-        "updated_at": "2022-01-19T15:32:01.996Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 44,
-    "fields": {
-        "summary": "Создать миграцию",
-        "description": "Пойдемте в пятницу гулять, мы заслужили",
-        "status": 1,
-        "created_at": "2022-01-19T15:32:32.032Z",
-        "updated_at": "2022-01-19T15:32:32.032Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 45,
-    "fields": {
-        "summary": "Создать суперадмин",
-        "description": "Я уже не знаю что писать, надеюсь это никто не читает",
-        "status": 1,
-        "created_at": "2022-01-19T15:32:57.758Z",
-        "updated_at": "2022-01-19T15:32:57.758Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 46,
-    "fields": {
-        "summary": "Создать фикстуру базы данных",
-        "description": "Я уже не знаю что писать, надеюсь это никто не читает",
-        "status": 1,
-        "created_at": "2022-01-19T15:33:28.689Z",
-        "updated_at": "2022-01-19T15:33:28.689Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 47,
-    "fields": {
-        "summary": "Создать миграцию",
-        "description": "Я уже не знаю что писать, надеюсь это никто не читает",
-        "status": 2,
-        "created_at": "2022-01-19T15:33:43.553Z",
-        "updated_at": "2022-01-19T15:33:43.553Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 48,
-    "fields": {
-        "summary": "Создать GRUD для задачи",
-        "description": "Я уже не знаю что писать, надеюсь это никто не читает",
-        "status": 1,
-        "created_at": "2022-01-19T15:34:32.554Z",
-        "updated_at": "2022-02-07T10:41:47.597Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": [
-            2
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 49,
-    "fields": {
-        "summary": "Создать фикстуру базы данных",
-        "description": "Я уже не знаю что писать, надеюсь это никто не читает",
-        "status": 1,
-        "created_at": "2022-01-19T15:33:28.689Z",
-        "updated_at": "2022-01-19T15:33:28.689Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 50,
-    "fields": {
-        "summary": "Создать миграцию",
-        "description": "Я уже не знаю что писать, надеюсь это никто не читает",
-        "status": 2,
-        "created_at": "2022-01-19T15:33:43.553Z",
-        "updated_at": "2022-01-19T15:33:43.553Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 51,
-    "fields": {
-        "summary": "Создать GRUD для задачи",
-        "description": "Я уже не знаю что писать, надеюсь это никто не читает",
-        "status": 1,
-        "created_at": "2022-01-19T15:34:32.554Z",
-        "updated_at": "2022-02-07T10:46:25.052Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 53,
-    "fields": {
-        "summary": "Улучшить главную страницу с бутстрапом",
-        "description": "Я уже не знаю что писать, надеюсь это никто не читает",
-        "status": 2,
-        "created_at": "2022-01-19T15:35:25.049Z",
-        "updated_at": "2022-02-07T10:38:27.629Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": [
-            2
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 54,
-    "fields": {
-        "summary": "Создать приложение Issue Tracker",
-        "description": "Я уже не знаю что писать, надеюсь это никто не читает",
-        "status": 2,
-        "created_at": "2022-01-19T15:32:01.996Z",
-        "updated_at": "2022-01-19T15:32:01.996Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 55,
-    "fields": {
-        "summary": "Создать миграцию",
-        "description": "Я уже не знаю что писать, надеюсь это никто не читает",
-        "status": 1,
-        "created_at": "2022-01-19T15:32:32.032Z",
-        "updated_at": "2022-01-19T15:32:32.032Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 56,
-    "fields": {
-        "summary": "Создать суперадмин",
-        "description": "Я уже не знаю что писать, надеюсь это никто не читает",
-        "status": 1,
-        "created_at": "2022-01-19T15:32:57.758Z",
-        "updated_at": "2022-01-19T15:32:57.758Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 57,
-    "fields": {
-        "summary": "Создать фикстуру базы данных",
-        "description": "Кто едет в гости по утрам тот поступает мудро",
-        "status": 1,
-        "created_at": "2022-01-19T15:33:28.689Z",
-        "updated_at": "2022-01-19T15:33:28.689Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 58,
-    "fields": {
-        "summary": "Создать миграцию",
-        "description": "Кто едет в гости по утрам тот поступает мудро",
-        "status": 2,
-        "created_at": "2022-01-19T15:33:43.553Z",
-        "updated_at": "2022-01-19T15:33:43.553Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 59,
-    "fields": {
-        "summary": "Создать GRUD для задачи",
-        "description": "Кто едет в гости по утрам тот поступает мудро",
-        "status": 1,
-        "created_at": "2022-01-19T15:34:32.554Z",
-        "updated_at": "2022-02-07T10:46:43.456Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": [
-            2
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 60,
-    "fields": {
-        "summary": "Создать фикстуру базы данных",
-        "description": "Кто едет в гости по утрам тот поступает мудро",
-        "status": 1,
-        "created_at": "2022-01-19T15:33:28.689Z",
-        "updated_at": "2022-01-19T15:33:28.689Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 61,
-    "fields": {
-        "summary": "Создать миграцию",
-        "description": "Кто едет в гости по утрам тот поступает мудро",
-        "status": 2,
-        "created_at": "2022-01-19T15:33:43.553Z",
-        "updated_at": "2022-01-19T15:33:43.553Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 62,
-    "fields": {
-        "summary": "Создать GRUD для задачи",
-        "description": "Кто едет в гости по утрам тот поступает мудро",
-        "status": 1,
-        "created_at": "2022-01-19T15:34:32.554Z",
-        "updated_at": "2022-02-07T10:46:59.908Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 65,
-    "fields": {
-        "summary": "Создать приложение Issue Tracker",
-        "description": "Кто едет в гости по утрам тот поступает мудро",
-        "status": 2,
-        "created_at": "2022-01-19T15:32:01.996Z",
-        "updated_at": "2022-01-19T15:32:01.996Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 66,
-    "fields": {
-        "summary": "Создать миграцию",
-        "description": "Кто едет в гости по утрам тот поступает мудро",
-        "status": 1,
-        "created_at": "2022-01-19T15:32:32.032Z",
-        "updated_at": "2022-01-19T15:32:32.032Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 67,
-    "fields": {
-        "summary": "Создать суперадмин",
-        "description": "Кто едет в гости по утрам тот поступает мудро",
-        "status": 1,
-        "created_at": "2022-01-19T15:32:57.758Z",
-        "updated_at": "2022-01-19T15:32:57.758Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 68,
-    "fields": {
-        "summary": "Создать фикстуру базы данных",
-        "description": "Тарам парам тарам тарам ",
-        "status": 1,
-        "created_at": "2022-01-19T15:33:28.689Z",
-        "updated_at": "2022-01-19T15:33:28.689Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 69,
-    "fields": {
-        "summary": "Создать миграцию",
-        "description": "Тарам парам тарам тарам ",
-        "status": 2,
-        "created_at": "2022-01-19T15:33:43.553Z",
-        "updated_at": "2022-01-19T15:33:43.553Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 70,
-    "fields": {
-        "summary": "Создать GRUD для задачи",
-        "description": "Тарам парам тарам тарам",
-        "status": 1,
-        "created_at": "2022-01-19T15:34:32.554Z",
-        "updated_at": "2022-02-07T10:47:14.842Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 71,
-    "fields": {
-        "summary": "Создать фикстуру базы данных",
-        "description": "Тарам парам тарам тарам ",
-        "status": 1,
-        "created_at": "2022-01-19T15:33:28.689Z",
-        "updated_at": "2022-01-19T15:33:28.689Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 72,
-    "fields": {
-        "summary": "Создать миграцию",
-        "description": "Тарам парам тарам тарам ",
-        "status": 2,
-        "created_at": "2022-01-19T15:33:43.553Z",
-        "updated_at": "2022-01-19T15:33:43.553Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 73,
-    "fields": {
-        "summary": "Создать GRUD для задачи",
-        "description": "Тарам парам тарам тарам",
-        "status": 1,
-        "created_at": "2022-01-19T15:34:32.554Z",
-        "updated_at": "2022-02-07T10:47:29.517Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 74,
-    "fields": {
-        "summary": "Исправить ошибки при создании задачи",
-        "description": "Тарам парам тарам тарам",
-        "status": 1,
-        "created_at": "2022-01-19T15:34:57.466Z",
-        "updated_at": "2022-02-07T10:39:55.466Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 75,
-    "fields": {
-        "summary": "Улучшить главную страницу с бутстрапом",
-        "description": "Тарам парам тарам тарам",
-        "status": 2,
-        "created_at": "2022-01-19T15:35:25.049Z",
-        "updated_at": "2022-02-07T10:38:41.657Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 76,
-    "fields": {
-        "summary": "Создать приложение Issue Tracker",
-        "description": "Тарам парам тарам тарам ",
-        "status": 2,
-        "created_at": "2022-01-19T15:32:01.996Z",
-        "updated_at": "2022-01-19T15:32:01.996Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 77,
-    "fields": {
-        "summary": "Создать миграцию",
-        "description": "Тарам парам тарам тарам ",
-        "status": 1,
-        "created_at": "2022-01-19T15:32:32.032Z",
-        "updated_at": "2022-01-19T15:32:32.032Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 78,
-    "fields": {
-        "summary": "Создать суперадмин",
-        "description": "Тарам парам тарам тарам ",
-        "status": 1,
-        "created_at": "2022-01-19T15:32:57.758Z",
-        "updated_at": "2022-01-19T15:32:57.758Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 79,
-    "fields": {
-        "summary": "Создать фикстуру базы данных",
-        "description": "Тарам парам тарам тарам ",
-        "status": 1,
-        "created_at": "2022-01-19T15:33:28.689Z",
-        "updated_at": "2022-01-19T15:33:28.689Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 80,
-    "fields": {
-        "summary": "Создать миграцию",
-        "description": "Тарам парам тарам тарам ",
-        "status": 2,
-        "created_at": "2022-01-19T15:33:43.553Z",
-        "updated_at": "2022-01-19T15:33:43.553Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 81,
-    "fields": {
-        "summary": "Создать GRUD для задачи",
-        "description": "Тарам парам тарам тарам",
-        "status": 1,
-        "created_at": "2022-01-19T15:34:32.554Z",
-        "updated_at": "2022-02-07T10:47:50.399Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 82,
-    "fields": {
-        "summary": "Создать фикстуру базы данных",
-        "description": "Пагинатор аригинатор поисковик я просто начала тут писать чушь ))",
-        "status": 1,
-        "created_at": "2022-01-19T15:33:28.689Z",
-        "updated_at": "2022-01-19T15:33:28.689Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 83,
-    "fields": {
-        "summary": "Создать миграцию",
-        "description": "Пагинатор аригинатор поисковик я просто начала тут писать чушь ))",
-        "status": 2,
-        "created_at": "2022-01-19T15:33:43.553Z",
-        "updated_at": "2022-01-19T15:33:43.553Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 84,
-    "fields": {
-        "summary": "Создать GRUD для задачи",
-        "description": "Пагинатор аригинатор поисковик я просто начала тут писать чушь ))",
-        "status": 1,
-        "created_at": "2022-01-19T15:34:32.554Z",
-        "updated_at": "2022-02-07T10:48:04.023Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 85,
-    "fields": {
-        "summary": "Исправить ошибки при создании задачи",
-        "description": "Пагинатор аригинатор поисковик я просто начала тут писать чушь ))",
-        "status": 1,
-        "created_at": "2022-01-19T15:34:57.466Z",
-        "updated_at": "2022-02-07T10:40:04.947Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": [
-            2
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 87,
-    "fields": {
-        "summary": "Создать приложение Issue Tracker",
-        "description": "Пагинатор аригинатор поисковик я просто начала тут писать чушь ))",
-        "status": 2,
-        "created_at": "2022-01-19T15:32:01.996Z",
-        "updated_at": "2022-01-19T15:32:01.996Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 88,
-    "fields": {
-        "summary": "Создать миграцию",
-        "description": "Пагинатор аригинатор поисковик я просто начала тут писать чушь ))",
-        "status": 1,
-        "created_at": "2022-01-19T15:32:32.032Z",
-        "updated_at": "2022-01-19T15:32:32.032Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 89,
-    "fields": {
-        "summary": "Создать суперадмин",
-        "description": "Пагинатор аригинатор поисковик я просто начала тут писать чушь ))",
-        "status": 1,
-        "created_at": "2022-01-19T15:32:57.758Z",
-        "updated_at": "2022-01-19T15:32:57.758Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 90,
-    "fields": {
-        "summary": "Создать фикстуру базы данных",
-        "description": "Пагинатор аригинатор поисковик я просто начала тут писать чушь ))",
-        "status": 1,
-        "created_at": "2022-01-19T15:33:28.689Z",
-        "updated_at": "2022-01-19T15:33:28.689Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 91,
-    "fields": {
-        "summary": "Создать миграцию",
-        "description": "Пагинатор аригинатор поисковик я просто начала тут писать чушь ))",
-        "status": 2,
-        "created_at": "2022-01-19T15:33:43.553Z",
-        "updated_at": "2022-01-19T15:33:43.553Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 92,
-    "fields": {
-        "summary": "Создать GRUD для задачи",
-        "description": "Пагинатор аригинатор поисковик я просто начала тут писать чушь ))",
-        "status": 1,
-        "created_at": "2022-01-19T15:34:32.554Z",
-        "updated_at": "2022-02-07T10:48:23.566Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 93,
-    "fields": {
-        "summary": "Создать фикстуру базы данных",
-        "description": "Пагинатор аригинатор поисковик я просто начала тут писать чушь ))",
-        "status": 1,
-        "created_at": "2022-01-19T15:33:28.689Z",
-        "updated_at": "2022-01-19T15:33:28.689Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 94,
-    "fields": {
-        "summary": "Создать миграцию",
-        "description": "Пагинатор аригинатор поисковик я просто начала тут писать чушь ))",
-        "status": 2,
-        "created_at": "2022-01-19T15:33:43.553Z",
-        "updated_at": "2022-01-19T15:33:43.553Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 95,
-    "fields": {
-        "summary": "Создать GRUD для задачи",
-        "description": "Пагинатор аригинатор поисковик я просто начала тут писать чушь ))",
-        "status": 1,
-        "created_at": "2022-01-19T15:34:32.554Z",
-        "updated_at": "2022-02-07T10:48:36.621Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 96,
-    "fields": {
-        "summary": "Исправить ошибки при создании задачи",
-        "description": "Пагинатор аригинатор поисковик я просто начала тут писать чушь ))",
-        "status": 1,
-        "created_at": "2022-01-19T15:34:57.466Z",
-        "updated_at": "2022-02-07T10:40:15.506Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 97,
-    "fields": {
-        "summary": "Улучшить главную страницу с бутстрапом",
-        "description": "Пагинатор аригинатор поисковик я просто начала тут писать чушь ))",
-        "status": 2,
-        "created_at": "2022-01-19T15:35:25.049Z",
-        "updated_at": "2022-02-07T10:36:42.573Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 98,
-    "fields": {
-        "summary": "Создать приложение Issue Tracker",
-        "description": "Пагинатор аригинатор поисковик я просто начала тут писать чушь ))",
-        "status": 2,
-        "created_at": "2022-01-19T15:32:01.996Z",
-        "updated_at": "2022-01-19T15:32:01.996Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 99,
-    "fields": {
-        "summary": "Создать миграцию",
-        "description": "Пагинатор аригинатор поисковик я просто начала тут писать чушь ))",
-        "status": 1,
-        "created_at": "2022-01-19T15:32:32.032Z",
-        "updated_at": "2022-01-19T15:32:32.032Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 100,
-    "fields": {
-        "summary": "Создать суперадмин",
-        "description": "Пагинатор аригинатор поисковик я просто начала тут писать чушь ))",
-        "status": 1,
-        "created_at": "2022-01-19T15:32:57.758Z",
-        "updated_at": "2022-01-19T15:32:57.758Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 101,
-    "fields": {
-        "summary": "Создать фикстуру базы данных",
-        "description": "Пагинатор аригинатор поисковик я просто начала тут писать чушь ))",
-        "status": 1,
-        "created_at": "2022-01-19T15:33:28.689Z",
-        "updated_at": "2022-01-19T15:33:28.689Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 102,
-    "fields": {
-        "summary": "Создать миграцию",
-        "description": "Пагинатор аригинатор поисковик я просто начала тут писать чушь ))",
-        "status": 2,
-        "created_at": "2022-01-19T15:33:43.553Z",
-        "updated_at": "2022-01-19T15:33:43.553Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": []
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 103,
-    "fields": {
-        "summary": "Создать GRUD для задачи",
-        "description": "Пагинатор аригинатор поисковик я просто начала тут писать чушь ))",
-        "status": 1,
-        "created_at": "2022-01-19T15:34:32.554Z",
-        "updated_at": "2022-02-07T10:48:50.486Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 104,
-    "fields": {
-        "summary": "Исправить ошибки при создании задачи",
-        "description": "А тут будет вот так",
-        "status": 1,
-        "created_at": "2022-01-19T15:34:57.466Z",
-        "updated_at": "2022-02-07T10:40:27.109Z",
-        "is_deleted": false,
-        "project": 1,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.project",
-    "pk": 1,
-    "fields": {
-        "project": "Приложение для ресторана",
-        "description": null,
-        "created_at": null,
-        "updated_at": null,
-        "is_deleted": false
     }
 },
 {
     "model": "issue_tracker.project",
     "pk": 2,
     "fields": {
-        "project": "Новый проект",
+        "project": "Новый проект 3",
         "description": "",
-        "created_at": "2022-02-09T18:00:00Z",
-        "updated_at": "2022-02-19T18:00:00Z",
-        "is_deleted": false
-    }
-},
-{
-    "model": "issue_tracker.project",
-    "pk": 6,
-    "fields": {
-        "project": "Новый проект 4",
-        "description": "",
-        "created_at": "2022-02-06T18:00:00Z",
+        "created_at": "2022-02-19T18:00:00Z",
         "updated_at": null,
-        "is_deleted": false
-    }
-},
-{
-    "model": "issue_tracker.project",
-    "pk": 7,
-    "fields": {
-        "project": "Старый проект",
-        "description": "",
-        "created_at": "2022-02-08T18:00:00Z",
-        "updated_at": null,
-        "is_deleted": false
+        "is_deleted": false,
+        "user": [
+            [
+                "admin"
+            ],
+            [
+                "manager"
+            ],
+            [
+                "lead"
+            ]
+        ]
     }
 },
 {
     "model": "issue_tracker.project",
     "pk": 15,
     "fields": {
-        "project": "Новый проект 8",
+        "project": "Новый проект 3611",
         "description": "",
-        "created_at": "2022-02-07T18:00:00Z",
-        "updated_at": "2022-02-26T18:00:00Z",
-        "is_deleted": false
+        "created_at": "2022-02-25T18:00:00Z",
+        "updated_at": null,
+        "is_deleted": false,
+        "user": [
+            [
+                "admin"
+            ],
+            [
+                "manager"
+            ],
+            [
+                "lead"
+            ]
+        ]
     }
 },
 {
     "model": "issue_tracker.project",
-    "pk": 16,
+    "pk": 34,
     "fields": {
-        "project": "Новый проект 9",
+        "project": "Новый проект 300",
         "description": "",
-        "created_at": "2022-02-08T18:00:00Z",
+        "created_at": "2022-02-25T18:00:00Z",
         "updated_at": null,
-        "is_deleted": false
+        "is_deleted": false,
+        "user": [
+            [
+                "admin"
+            ],
+            [
+                "lead"
+            ]
+        ]
     }
 },
 {
     "model": "issue_tracker.project",
-    "pk": 17,
+    "pk": 35,
     "fields": {
-        "project": "Новый проект 45",
+        "project": "Админа нету в списке",
         "description": "",
-        "created_at": "2022-02-10T18:00:00Z",
+        "created_at": "2022-02-17T18:00:00Z",
         "updated_at": null,
-        "is_deleted": false
-    }
-},
-{
-    "model": "auth.user",
-    "pk": 1,
-    "fields": {
-        "password": "pbkdf2_sha256$320000$8C1oHrABAvHXTXktKT7zH4$uDcaFaVRUoc7E68IQnx1DVdL5XrY3HsIu9Vq4jy/M0E=",
-        "last_login": "2022-02-07T15:52:47.156Z",
-        "is_superuser": true,
-        "username": "admin",
-        "first_name": "",
-        "last_name": "",
-        "email": "auezova.90@mail.ru",
-        "is_staff": true,
-        "is_active": true,
-        "date_joined": "2022-01-19T13:31:22.129Z",
-        "groups": [],
-        "user_permissions": []
+        "is_deleted": false,
+        "user": [
+            [
+                "dev"
+            ]
+        ]
     }
 }
 ]

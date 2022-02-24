@@ -9,6 +9,7 @@
                         <div class="col-md-8 px-3">
                             <div class="card-body">
                                 <h5 class="card-title" style="color: darkgreen">{{ project.project }}</h5>
+{#                                <h4 class="card-title" style="color: darkgreen">{{ project.user }}</h4>#}
                                 <p>Дата создания: {{ project.created_at|date:'Y.m.d' }}</p>
                                 {% if project.description %}
                                     <p>Описание: {{ project.description }}</p>

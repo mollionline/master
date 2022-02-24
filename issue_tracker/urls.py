@@ -9,7 +9,8 @@ from issue_tracker.views.project_view import (ListProjectView,
                                               CreateProjectView,
                                               DeleteProjectView,
                                               DetailProjectView,
-                                              UpdateProjectView)
+                                              UpdateProjectView,
+                                              AddUsersToProject)
 
 urlpatterns = []
 
@@ -18,6 +19,7 @@ project_urls = [
     path('projects/<int:pk>/delete', DeleteProjectView.as_view(), name='delete_project'),
     path('projects/<int:pk>/edit', UpdateProjectView.as_view(), name='update_project'),
     path('projects/<int:pk>/', DetailProjectView.as_view(), name='detail_project'),
+    path('projects/<int:pk>/add_user', AddUsersToProject.as_view(), name='add_users_to_project'),
     path('', ListProjectView.as_view(), name='list_project')
 ]
 

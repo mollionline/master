@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h4>Добавить пользователя</h4>
+    <form method="POST" action="{% url 'add_users_to_project' project.pk %}" style="margin-top: 20px; width: 70%;">
+        {% csrf_token %}
+        {% for user in form.user.field.queryset %}
+            <div class="form-check form-switch">
+                <label class="form-check-label">{{ user.get_full_name }}</label>
+                <input class="form-check-input" id="user"
+                       name="user" type="checkbox" {% if user in project.user.all %} checked {% endif %}
+                       value="{{ user.pk }}">
+            </div>
+        {% endfor %}
+        <input type="submit" class="form-control btn btn-secondary" value="Добавить">
+    </form>
+{% endblock %}

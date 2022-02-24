@@ -4,7 +4,7 @@ from issue_tracker.models import Task, Project
 from issue_tracker.forms import TaskForm, SearchForm
 from django.urls import reverse, reverse_lazy
 from issue_tracker.helpers import SearchView
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 
 
 # Create your views here.
@@ -32,10 +32,11 @@ class DetailTaskView(TaskListView):
         return super().get_context_data(**kwargs)
 
 
-class NewAddTaskView(CreateView):
+class NewAddTaskView(PermissionRequiredMixin, CreateView):
     model = Task
     form_class = TaskForm
     template_name = 'project/detail_project.html'
+    permission_required = 'issue_tracker.add_task'
 
     def get_success_url(self):
         return reverse('detail_project', kwargs={'pk': self.kwargs.get('pk')})
@@ -67,20 +68,34 @@ class NewAddTaskView(CreateView):
         })
 
 
-class EditTaskView(LoginRequiredMixin, UpdateView):
+class EditTaskView(PermissionRequiredMixin, UpdateView):
     template_name = 'task/edit_task.html'
     form_class = TaskForm
     model = Task
+    permission_required = 'issue_tracker.change_task'
 
     def get_success_url(self):
         return reverse('detail_project', kwargs={'pk': self.object.project.pk})
 
+    def has_permission(self):
+        task = get_object_or_404(Task, pk=self.kwargs.get('pk'))
+        project = get_object_or_404(Project, pk=task.project_id)
+        return super().has_permission() and self.request.user in project.user.all() or str(
+            self.request.user) == 'admin'
 
-class DeleteTaskView(LoginRequiredMixin, DeleteView):
+
+class DeleteTaskView(PermissionRequiredMixin, DeleteView):
     model = Task
+    permission_required = 'issue_tracker.delete_task'
 
     def get(self, request, *args, **kwargs):
         return self.delete(request=request)
 
     def get_success_url(self):
         return reverse('detail_project', kwargs={'pk': self.object.project.pk})
+
+    def has_permission(self):
+        task = get_object_or_404(Task, pk=self.kwargs.get('pk'))
+        project = get_object_or_404(Project, pk=task.project_id)
+        return super().has_permission() and self.request.user in project.user.all() or str(
+            self.request.user) == 'admin'

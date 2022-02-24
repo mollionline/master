@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.db.models.deletion import get_candidate_relations_to_delete
 
@@ -62,6 +63,7 @@ class Project(models.Model):
     updated_at = models.DateTimeField(null=True, blank=True)
     is_deleted = models.BooleanField(default=False)
     objects = CustomModelManager()
+    user = models.ManyToManyField(get_user_model(), related_name='projects', verbose_name='Пользователь')
 
     def delete(self, using=None, keep_parents=False):
         self.is_deleted = True

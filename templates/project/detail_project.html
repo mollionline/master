@@ -3,6 +3,9 @@
 {% block content %}
     <div class="card">
         <div class="card-body">
+            {% for user in project.user.all %}
+                {{ user.get_full_name }} |
+            {% endfor %}
             <div class="card-title">Наименование проекта: {{ project.project }}</div>
             {% if project.description %}
                 <p>Описание проекта: {{ project.description }}</p>
@@ -25,8 +28,12 @@
             <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                     data-bs-target="#exampleModal">Удалить
             </button>
-
-            {% if user.is_authenticated %}
+{#            {% if perms.project.change_project or project.user == request.user %}#}
+                <a class="btn btn-success" href="{% url 'add_users_to_project' project.pk %}">Управление
+                    пользователями</a>
+{#            {% endif %}#}
+{#            {% if perms.task.add_task or task.project.user == request.user %}#}
+            {% if perms.task.add_task or user in project.user.all  %}
                 <h4 style="margin-top: 20px;">Создание задачи для данного проекта</h4>
                 <form action="{% url 'new_task' project.pk %}" method="post">
                     {% include 'partial/task/form_task.html' with button_text='Создать' %}
