@@ -29,7 +29,7 @@ class ProjectAdmin(admin.ModelAdmin):
     list_display = ['id', 'project', 'description']
     list_filter = ['project']
     search_fields = ['project']
-    fields = ['project', 'description']
+    fields = ['project', 'description', 'user']
 
 
 admin.site.register(Task, TaskAdmin)
