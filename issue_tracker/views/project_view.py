@@ -1,3 +1,5 @@
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic import CreateView, DeleteView, DetailView, UpdateView
 from issue_tracker.models import Project
@@ -32,16 +34,25 @@ class ListProjectView(PermissionRequiredMixin, SearchView):
 class CreateProjectView(PermissionRequiredMixin, CreateView):
     model = Project
     template_name = 'project/create_project.html'
+    form_class = ProjectForm
     permission_required = 'issue_tracker.add_project'
-    fields = ['project', 'description', 'created_at', 'updated_at']
-    success_url = ''
 
-    def form_valid(self, form):
-        self.project = form.save()
-        return super(CreateProjectView, self).form_valid(form)
-
-    def get_success_url(self):
-        return reverse('detail_project', kwargs={'pk': self.project.pk})
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(data=request.POST)
+        if form.is_valid():
+            user = request.user
+            project = Project.objects.create(
+                project=form.cleaned_data.get('project'),
+                description=form.cleaned_data.get('description'),
+                created_at=form.cleaned_data.get('created_at'),
+                updated_at=form.cleaned_data.get('updated_at')
+            )
+            project.user.add(user)
+            url = reverse('detail_project', kwargs={'pk': project.pk})
+            return HttpResponseRedirect(url)
+        return render(request, self.template_name, context={
+            'form': form
+        })
 
 
 class DeleteProjectView(PermissionRequiredMixin, DeleteView):
