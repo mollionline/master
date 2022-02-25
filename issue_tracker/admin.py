@@ -26,10 +26,10 @@ class StatusAdmin(admin.ModelAdmin):
 
 
 class ProjectAdmin(admin.ModelAdmin):
-    list_display = ['id', 'project', 'description']
+    list_display = ['id', 'project', 'description', 'created_at']
     list_filter = ['project']
     search_fields = ['project']
-    fields = ['project', 'description', 'user']
+    fields = ['project', 'description', 'user', 'created_at', 'updated_at']
 
 
 admin.site.register(Task, TaskAdmin)
