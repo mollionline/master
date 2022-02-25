@@ -45,11 +45,11 @@
     "model": "issue_tracker.task",
     "pk": 2,
     "fields": {
-        "summary": "Задача 88",
+        "summary": "Задача Менеджера, админа, капитана 200",
         "description": "",
-        "status": 1,
+        "status": 3,
         "created_at": "2022-02-24T14:09:57.871Z",
-        "updated_at": "2022-02-24T15:52:00.870Z",
+        "updated_at": "2022-02-25T04:28:49.450Z",
         "is_deleted": false,
         "project": 15,
         "type": [
@@ -60,45 +60,13 @@
 },
 {
     "model": "issue_tracker.task",
-    "pk": 3,
+    "pk": 11,
     "fields": {
-        "summary": "DDDDDD12",
+        "summary": "Задача разработчика 1",
         "description": "",
         "status": 1,
-        "created_at": "2022-02-24T14:39:42.425Z",
-        "updated_at": "2022-02-24T14:39:42.425Z",
-        "is_deleted": false,
-        "project": 15,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 4,
-    "fields": {
-        "summary": "DDDDDD123",
-        "description": "",
-        "status": 1,
-        "created_at": "2022-02-24T14:40:39.161Z",
-        "updated_at": "2022-02-24T14:40:39.161Z",
-        "is_deleted": false,
-        "project": 15,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 6,
-    "fields": {
-        "summary": "DDDDDD12",
-        "description": "",
-        "status": 1,
-        "created_at": "2022-02-24T16:12:21.564Z",
-        "updated_at": "2022-02-24T16:55:10.812Z",
+        "created_at": "2022-02-24T17:40:42.799Z",
+        "updated_at": "2022-02-24T17:40:42.799Z",
         "is_deleted": false,
         "project": 35,
         "type": [
@@ -108,15 +76,127 @@
 },
 {
     "model": "issue_tracker.task",
-    "pk": 8,
+    "pk": 13,
     "fields": {
-        "summary": "DDDDDD",
+        "summary": "Задача разработчика 2",
         "description": "",
         "status": 1,
-        "created_at": "2022-02-24T16:15:57.730Z",
-        "updated_at": "2022-02-24T16:15:57.730Z",
+        "created_at": "2022-02-25T04:17:25.396Z",
+        "updated_at": "2022-02-25T04:17:25.396Z",
         "is_deleted": false,
-        "project": 34,
+        "project": 35,
+        "type": [
+            3
+        ]
+    }
+},
+{
+    "model": "issue_tracker.task",
+    "pk": 14,
+    "fields": {
+        "summary": "Задача разработчика 3",
+        "description": "",
+        "status": 1,
+        "created_at": "2022-02-25T04:22:30.659Z",
+        "updated_at": "2022-02-25T04:22:30.659Z",
+        "is_deleted": false,
+        "project": 35,
+        "type": [
+            3
+        ]
+    }
+},
+{
+    "model": "issue_tracker.task",
+    "pk": 15,
+    "fields": {
+        "summary": "Задача разработчика 4",
+        "description": "",
+        "status": 1,
+        "created_at": "2022-02-25T04:22:40.375Z",
+        "updated_at": "2022-02-25T04:22:40.375Z",
+        "is_deleted": false,
+        "project": 35,
+        "type": [
+            2
+        ]
+    }
+},
+{
+    "model": "issue_tracker.task",
+    "pk": 16,
+    "fields": {
+        "summary": "Задача Менеджера, админа, капитана 1",
+        "description": "",
+        "status": 1,
+        "created_at": "2022-02-25T04:27:42.599Z",
+        "updated_at": "2022-02-25T04:27:42.599Z",
+        "is_deleted": false,
+        "project": 36,
+        "type": [
+            1
+        ]
+    }
+},
+{
+    "model": "issue_tracker.task",
+    "pk": 17,
+    "fields": {
+        "summary": "Задача Менеджера, админа, капитана 2",
+        "description": "",
+        "status": 1,
+        "created_at": "2022-02-25T04:27:48.436Z",
+        "updated_at": "2022-02-25T04:27:48.436Z",
+        "is_deleted": false,
+        "project": 36,
+        "type": [
+            2
+        ]
+    }
+},
+{
+    "model": "issue_tracker.task",
+    "pk": 18,
+    "fields": {
+        "summary": "Задача Менеджера, админа, капитана 5",
+        "description": "",
+        "status": 1,
+        "created_at": "2022-02-25T04:27:55.670Z",
+        "updated_at": "2022-02-25T04:27:55.670Z",
+        "is_deleted": false,
+        "project": 36,
+        "type": [
+            2
+        ]
+    }
+},
+{
+    "model": "issue_tracker.task",
+    "pk": 19,
+    "fields": {
+        "summary": "Задача Менеджера, админа, капитана 6",
+        "description": "",
+        "status": 1,
+        "created_at": "2022-02-25T04:28:02.596Z",
+        "updated_at": "2022-02-25T04:28:02.596Z",
+        "is_deleted": false,
+        "project": 36,
+        "type": [
+            2
+        ]
+    }
+},
+{
+    "model": "issue_tracker.task",
+    "pk": 20,
+    "fields": {
+        "summary": "Задача Менеджера, админа, капитана 100",
+        "description": "",
+        "status": 2,
+        "created_at": "2022-02-25T04:28:39.363Z",
+        "updated_at": "2022-02-25T04:28:39.363Z",
+        "is_deleted": false,
+        "project": 15,
         "type": [
             1
         ]
@@ -124,31 +204,9 @@
 },
 {
     "model": "issue_tracker.project",
-    "pk": 2,
-    "fields": {
-        "project": "Новый проект 3",
-        "description": "",
-        "created_at": "2022-02-19T18:00:00Z",
-        "updated_at": null,
-        "is_deleted": false,
-        "user": [
-            [
-                "admin"
-            ],
-            [
-                "manager"
-            ],
-            [
-                "lead"
-            ]
-        ]
-    }
-},
-{
-    "model": "issue_tracker.project",
     "pk": 15,
     "fields": {
-        "project": "Новый проект 3611",
+        "project": "Проверка менеджера, админа,капитана",
         "description": "",
         "created_at": "2022-02-25T18:00:00Z",
         "updated_at": null,
@@ -159,25 +217,6 @@
             ],
             [
                 "manager"
-            ],
-            [
-                "lead"
-            ]
-        ]
-    }
-},
-{
-    "model": "issue_tracker.project",
-    "pk": 34,
-    "fields": {
-        "project": "Новый проект 300",
-        "description": "",
-        "created_at": "2022-02-25T18:00:00Z",
-        "updated_at": null,
-        "is_deleted": false,
-        "user": [
-            [
-                "admin"
             ],
             [
                 "lead"
@@ -199,6 +238,207 @@
                 "dev"
             ]
         ]
+    }
+},
+{
+    "model": "issue_tracker.project",
+    "pk": 36,
+    "fields": {
+        "project": "Проверка менеджера, админа,капитана",
+        "description": "",
+        "created_at": "2022-02-25T18:00:00Z",
+        "updated_at": null,
+        "is_deleted": false,
+        "user": [
+            [
+                "admin"
+            ],
+            [
+                "manager"
+            ],
+            [
+                "lead"
+            ]
+        ]
+    }
+},
+{
+    "model": "issue_tracker.project",
+    "pk": 37,
+    "fields": {
+        "project": "Новый проект 36",
+        "description": "",
+        "created_at": "2022-02-18T18:00:00Z",
+        "updated_at": null,
+        "is_deleted": false,
+        "user": [
+            [
+                "admin"
+            ],
+            [
+                "manager"
+            ],
+            [
+                "dev"
+            ]
+        ]
+    }
+},
+{
+    "model": "issue_tracker.project",
+    "pk": 38,
+    "fields": {
+        "project": "Новый проект 3005",
+        "description": "",
+        "created_at": "2022-02-11T18:00:00Z",
+        "updated_at": null,
+        "is_deleted": false,
+        "user": [
+            [
+                "manager"
+            ],
+            [
+                "lead"
+            ]
+        ]
+    }
+},
+{
+    "model": "issue_tracker.project",
+    "pk": 39,
+    "fields": {
+        "project": "Новый проект 3",
+        "description": "",
+        "created_at": "2022-02-25T18:00:00Z",
+        "updated_at": null,
+        "is_deleted": false,
+        "user": [
+            [
+                "admin"
+            ],
+            [
+                "dev"
+            ]
+        ]
+    }
+},
+{
+    "model": "issue_tracker.project",
+    "pk": 40,
+    "fields": {
+        "project": "Новый проект 36066",
+        "description": "",
+        "created_at": "2022-02-26T18:00:00Z",
+        "updated_at": null,
+        "is_deleted": false,
+        "user": [
+            [
+                "admin"
+            ],
+            [
+                "manager"
+            ],
+            [
+                "lead"
+            ]
+        ]
+    }
+},
+{
+    "model": "issue_tracker.project",
+    "pk": 41,
+    "fields": {
+        "project": "Новый проект Разработчик",
+        "description": "",
+        "created_at": "2022-02-18T18:00:00Z",
+        "updated_at": null,
+        "is_deleted": false,
+        "user": [
+            [
+                "manager"
+            ],
+            [
+                "dev"
+            ]
+        ]
+    }
+},
+{
+    "model": "issue_tracker.project",
+    "pk": 42,
+    "fields": {
+        "project": "Новый проект Разработчик 500",
+        "description": "",
+        "created_at": "2022-02-11T18:00:00Z",
+        "updated_at": null,
+        "is_deleted": false,
+        "user": [
+            [
+                "manager"
+            ],
+            [
+                "dev"
+            ]
+        ]
+    }
+},
+{
+    "model": "issue_tracker.project",
+    "pk": 43,
+    "fields": {
+        "project": "Новый проект 7000000",
+        "description": "",
+        "created_at": "2022-02-24T18:00:00Z",
+        "updated_at": null,
+        "is_deleted": false,
+        "user": [
+            [
+                "admin"
+            ],
+            [
+                "manager"
+            ]
+        ]
+    }
+},
+{
+    "model": "issue_tracker.project",
+    "pk": 44,
+    "fields": {
+        "project": "Новый проект 800",
+        "description": "",
+        "created_at": "2022-02-24T18:00:00Z",
+        "updated_at": null,
+        "is_deleted": false,
+        "user": [
+            [
+                "manager"
+            ]
+        ]
+    }
+},
+{
+    "model": "issue_tracker.project",
+    "pk": 45,
+    "fields": {
+        "project": "Новый проект 55555",
+        "description": "",
+        "created_at": "2022-02-24T18:00:00Z",
+        "updated_at": null,
+        "is_deleted": false,
+        "user": []
+    }
+},
+{
+    "model": "issue_tracker.project",
+    "pk": 47,
+    "fields": {
+        "project": "Новый проект 7777777",
+        "description": "",
+        "created_at": "2022-02-25T18:00:00Z",
+        "updated_at": null,
+        "is_deleted": false,
+        "user": []
     }
 }
 ]

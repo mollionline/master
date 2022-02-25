@@ -1,17 +1,17 @@
-from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.views.generic import CreateView, DeleteView, DetailView, UpdateView
 from issue_tracker.models import Project
 from issue_tracker.helpers import SearchView
 from issue_tracker.forms import SearchForm, ProjectForm
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.mixins import PermissionRequiredMixin
 
 
-class ListProjectView(SearchView):
+class ListProjectView(PermissionRequiredMixin, SearchView):
     template_name = 'project/list_project.html'
     model = Project
     ordering = ('-created_at',)
     paginate_by = 5
+    paginate_orphans = 1
     context_object_name = 'projects'
     search_form = SearchForm
     search_fields = {
@@ -20,6 +20,13 @@ class ListProjectView(SearchView):
     extra_context = {
         'title': 'Сприсок проектов'
     }
+    permission_required = 'issue_tracker.view_project'
+
+    def has_permission(self):
+        for project in Project.objects.all():
+            if super().has_permission() and self.request.user in project.user.all() or str(
+                    self.request.user) == 'admin':
+                return True
 
 
 class CreateProjectView(PermissionRequiredMixin, CreateView):
@@ -31,7 +38,6 @@ class CreateProjectView(PermissionRequiredMixin, CreateView):
 
     def form_valid(self, form):
         self.project = form.save()
-        print(form)
         return super(CreateProjectView, self).form_valid(form)
 
     def get_success_url(self):
@@ -47,6 +53,11 @@ class DeleteProjectView(PermissionRequiredMixin, DeleteView):
 
     def get_success_url(self):
         return reverse('list_project')
+
+    def has_permission(self):
+        return super().has_permission() and self.request.user in self.get_object().user.all() or str(
+            self.request.user) == 'admin' or str(
+            self.request.user) == 'manager'
 
 
 class DetailProjectView(DetailView):
@@ -65,10 +76,11 @@ class UpdateProjectView(PermissionRequiredMixin, UpdateView):
         return reverse('detail_project', kwargs={'pk': self.get_object().pk})
 
     def has_permission(self):
-        if self.request.user.groups.all()[0].name == 'Team Lead':
+        if str(self.request.user) == 'admin' or str(self.request.user) == 'manager':
+            return True
+        elif self.request.user.groups.all()[0].name == 'Team Lead':
             return False
-        elif super().has_permission() and self.request.user in self.get_object().user.all() or str(
-                self.request.user) == 'admin':
+        elif super().has_permission() and self.request.user in self.get_object().user.all():
             return True
         return False
 
@@ -85,4 +97,3 @@ class AddUsersToProject(PermissionRequiredMixin, UpdateView):
     def has_permission(self):
         return super().has_permission() and self.request.user in self.get_object().user.all() or str(
             self.request.user) == 'admin'
-

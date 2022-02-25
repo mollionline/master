@@ -2,13 +2,13 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic import UpdateView, DeleteView, CreateView
 from issue_tracker.models import Task, Project
 from issue_tracker.forms import TaskForm, SearchForm
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse
 from issue_tracker.helpers import SearchView
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import PermissionRequiredMixin
 
 
 # Create your views here.
-class TaskListView(SearchView):
+class TaskListView(PermissionRequiredMixin, SearchView):
     template_name = 'task/list_task.html'
     model = Task
     ordering = ('-created_at',)
@@ -22,6 +22,14 @@ class TaskListView(SearchView):
     extra_context = {
         'title': 'Список задач'
     }
+    permission_required = 'issue_tracker.view_task'
+
+    def has_permission(self):
+        for task in Task.objects.all():
+            project = get_object_or_404(Project, pk=task.project_id)
+            if super().has_permission() and self.request.user in project.user.all() or str(
+                    self.request.user) == 'admin':
+                return True
 
 
 class DetailTaskView(TaskListView):
@@ -66,6 +74,11 @@ class NewAddTaskView(PermissionRequiredMixin, CreateView):
             'project': project,
             'form': form
         })
+
+    def has_permission(self):
+        project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
+        return super().has_permission() and self.request.user in project.user.all() or str(
+            self.request.user) == 'admin'
 
 
 class EditTaskView(PermissionRequiredMixin, UpdateView):

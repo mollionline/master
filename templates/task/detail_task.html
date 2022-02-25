@@ -17,10 +17,15 @@
             <p>Дата создания: {{ task.created_at|date:'d.m.Y G:i' }}</p>
             <p>Дата редактирования: {{ task.updated_at|date:'d.m.Y G:i' }}</p>
             <a class="btn btn-dark" href="{% url 'list_project' %}">Вернуться в список проектов</a>
-            <a class="btn btn-success" href="{% url 'edit_task' task.pk %}">Изменить</a>
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">Удалить
-            </button>
+            {% if perms.task.change_task or user in task.project.user.all %}
+                <a class="btn btn-success" href="{% url 'edit_task' task.pk %}">Изменить</a>
+            {% endif %}
+
+            {% if perms.task.change_task or user in task.project.user.all %}
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">Удалить
+                </button>
+            {% endif %}
         </div>
     </div>
     {% include 'common/delete_modal.html' with deleted_object=task %}

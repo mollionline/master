@@ -11,26 +11,36 @@
                     <a class="nav-link {% if request.path == '/tasks/' %} active {% endif %}" aria-current="page"
                        href="{% url 'list_task' %}">Список задач</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link {% if request.path == '/projects/add/' %} active {% endif %}" aria-current="page"
-                       href="{% url 'create_project' %}">Добавить проект</a>
-                </li>
+                {% if perms.issue_tracker.change_project or user in request.user %}
+                    {% if user.username == 'lead' %}
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == '/projects/add/' %} active {% endif %}"
+                               aria-current="page"
+                               href="{% url 'create_project' %}">Добавить проект</a>
+                        </li>
+                    {% endif %}
+                {% endif %}
+
                 {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page"
                            href="">Привет, {{ user.username|capfirst }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/accounts/logout/' %} active {% endif %}" aria-current="page"
+                        <a class="nav-link {% if request.path == '/accounts/logout/' %} active {% endif %}"
+                           aria-current="page"
                            href="{% url 'logout' %}">Выйти</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/accounts/login/' %} active {% endif %}" aria-current="page"
+                        <a class="nav-link {% if request.path == '/accounts/login/' %} active {% endif %}"
+                           aria-current="page"
                            href="{% url 'login' %}">Войти</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/accounts/register/' %} active {% endif %}" aria-current="page"
+                        <a class="nav-link {% if request.path == '/accounts/register/' %} active {% endif %}"
+                           aria-current="page"
                            href="{% url 'register' %}">Зарегистрироваться</a>
                     </li>
                 {% endif %}
