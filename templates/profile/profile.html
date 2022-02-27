@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Пользователь{% endblock %}
+
+{% block content %}
+    <h1>Личная страница пользователя {{ user_obj.get_full_name|default:user_obj.username }}</h1>
+    {% if user_obj.profile.avatar %}
+        <img class="avatar" src="{{ user_obj.profile.avatar.url }}" width="250" height="250" alt="user picture">
+    {% endif %}
+    <p>Имя пользователя: {{ user_obj.username }}</p>
+    <p>Имя: {{ user_obj.first_name }}</p>
+    <p>Фамилия: {{ user_obj.last_name }}</p>
+    <p>Профиль: {{ user_obj.profile.profile }}</p>
+    <p>О себе: {{ user_obj.about_profile }}</p>
+
+    <div>
+        {% if request.user.id == user_obj.id %}
+            <a class="btn btn-info" href="">Редактировать</a>
+            <a class="btn btn-danger" href="">Изменить профиль</a>
+        {% endif %}
+    </div>
+
+    <h2 class="text-center clear">Проекты автора:</h2>
+
+    {% include 'common/pagination.html' %}
+    {% include 'partial/project/profiles_project_list.html' %}
+
+{% endblock %}

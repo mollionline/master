@@ -1,0 +1,25 @@
+<div class="row row-cols-1 align-items-start">
+    {% for project in projects %}
+        {% if perms.issue_tracker.view_project and user in project.user.all or user.username == 'manager' or user.username == 'admin' %}
+            <div class="col py-3">
+                <div class="card" style="border: 1px solid darkgreen;">
+                    <div class="row">
+                        <div class="col-md-8 px-3">
+                            <div class="card-body">
+                                <h5 class="card-title" style="color: darkgreen">{{ project.project }} </h5>
+                                <p>Дата создания: {{ project.created_at|date:'Y.m.d' }}</p>
+                                {% if project.description %}
+                                    <p>Описание: {{ project.description }}</p>
+                                {% else %}
+                                    <p>Описание не задано</p>
+                                {% endif %}
+                                <a class="btn btn-success" href="{% url 'detail_project' project.pk %}"
+                                   class="card-link">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>

@@ -3,8 +3,13 @@
 {% block content %}
     <div class="card">
         <div class="card-body">
+            <p>Участники проекта: </p>
             {% for user in project.user.all %}
-                {{ user.get_full_name }} |
+                <div style="display: inline-flex;">
+                    <h6 class="card"><a class="nav-link " aria-current="page"
+                                        href="{% url 'profile' user.pk %}">{{ user.get_full_name }}</a>
+                    </h6>
+                </div>
             {% endfor %}
             <div class="card-title">Наименование проекта: {{ project.project }}</div>
             {% if project.description %}
