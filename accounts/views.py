@@ -1,11 +1,11 @@
 from django.contrib.auth import authenticate, login, logout, get_user_model
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.views import View
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
 
 from accounts.forms import UserCreationForm
 
@@ -71,3 +71,16 @@ class UserProfileView(LoginRequiredMixin, DetailView):
         kwargs['projects'] = page.object_list
         kwargs['is_paginated'] = page.has_other_pages()
         return super().get_context_data(**kwargs)
+
+
+class UsersListView(PermissionRequiredMixin, ListView):
+    model = get_user_model()
+    template_name = 'profile/user_list.html'
+    context_object_name = 'users'
+    paginate_related_by = 5
+    paginate_related_orphans = 0
+    permission_required = 'issue_tracker.view_user'
+
+    def has_permission(self):
+        return super().has_permission() or self.request.user.groups.all()[0].name == 'Project Manager' or \
+               self.request.user.groups.all()[0].name == 'Team Lead'

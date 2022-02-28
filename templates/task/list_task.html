@@ -3,7 +3,7 @@
     <title>{{ title }}</title>
     <div class="row row-cols-1 align-items-start">
         {% for task in tasks %}
-            {% if perms.issue_tracker.view_task and user in task.project.user.all or user.username == 'admin' %}
+            {% if perms.issue_tracker.view_task and user in task.project.user.all or user.is_staff %}
                 <div class="col py-3">
                     <div class="card" style="border: 1px solid deepskyblue;">
                         <div class="row">

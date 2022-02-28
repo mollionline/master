@@ -11,22 +11,26 @@
                     <a class="nav-link {% if request.path == '/tasks/' %} active {% endif %}" aria-current="page"
                        href="{% url 'list_task' %}">Список задач</a>
                 </li>
-                {% if perms.issue_tracker.change_project or user in request.user %}
-                    {% if user.username == 'lead' %}
-                    {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link {% if request.path == '/projects/add/' %} active {% endif %}"
-                               aria-current="page"
-                               href="{% url 'create_project' %}">Добавить проект</a>
-                        </li>
-                    {% endif %}
+                {% if perms.issue_tracker.change_project %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/projects/add/' %} active {% endif %}"
+                           aria-current="page"
+                           href="{% url 'create_project' %}">Добавить проект</a>
+                    </li>
                 {% endif %}
 
                 {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page"
-                           href="{% url 'profile' request.user.pk %}">Привет, {{ user.username|capfirst }}</a>
+                           href="{% url 'profile' request.user.pk %}">Привет, {{ user.first_name|capfirst }}</a>
                     </li>
+                    {% if perms.auth.view_user %}
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == '/accounts/profiles/' %} active {% endif %}" aria-current="page"
+                               href="{% url 'profile_users' %}">Пользователи</a>
+                        </li>
+                    {% endif %}
+
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == '/accounts/logout/' %} active {% endif %}"
                            aria-current="page"

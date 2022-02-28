@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="row row-cols-1 align-items-start">
+        {% for user_obj in users %}
+            {% if perms.auth.view_user %}
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-3">
+                            {% if user_obj.profile.avatar %}
+                                <img class="avatar" src="{{ user_obj.profile.avatar.url }}" width="250" height="250"
+                                     alt="user picture" style="width: 250px; height: 250px;">
+                            {% endif %}
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <a class="btn btn-info" aria-current="page"
+                                   href="{% url 'profile' user_obj.pk %}">{{ user_obj.get_full_name }}</a>
+                                <p class="card-text">Логин пользователя: {{ user_obj.username }}</p>
+                                <p class="card-text">Имя: {{ user_obj.first_name }}</p>
+                                <p class="card-text">Фамилия: {{ user_obj.last_name }}</p>
+                                <a class="card-text"
+                                   href="{{ user_obj.profile.profile|default:'#' }}">Профиль на GitLab</a>
+                                <p class="card-text">О себе: {{ user_obj.profile.about_profile|default:'не заполнено' }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

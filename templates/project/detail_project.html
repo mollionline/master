@@ -29,22 +29,16 @@
             {% endif %}
 
             <a class="btn btn-dark" href="{% url 'list_project' %}">Вернуться в список проектов</a>
-            {% if perms.issue_tracker.change_project or user in project.user.all %}
-                {% if perms.issue_tracker.change_project %}
-                    <a class="btn btn-success" {% if user.username == 'lead' %} hidden
-                    {% endif %}  href="{% url 'update_project' project.pk %}">Изменить</a>
-                {% else %}
-                {% endif %}
+
+            {% if perms.issue_tracker.change_project %}
+                <a class="btn btn-success" href="{% url 'update_project' project.pk %}">Изменить</a>
             {% endif %}
-            {% if perms.issue_tracker.delete_project or user in project.user.all %}
-                {% if perms.issue_tracker.delete_project %}
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">Удалить
-                    </button>
-                {% else %}
-                {% endif %}
+            {% if perms.issue_tracker.delete_project %}
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">Удалить
+                </button>
             {% endif %}
-            {% if perms.issue_tracker.change_project and user in project.user.all %}
+            {% if perms.auth.change_user and user in project.user.all or user.is_staff %}
                 <a class="btn btn-success" href="{% url 'add_users_to_project' project.pk %}">Управление
                     пользователями</a>
             {% endif %}

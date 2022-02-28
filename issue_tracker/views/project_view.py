@@ -87,11 +87,8 @@ class UpdateProjectView(PermissionRequiredMixin, UpdateView):
         return reverse('detail_project', kwargs={'pk': self.get_object().pk})
 
     def has_permission(self):
-        if str(self.request.user) == 'admin' or str(self.request.user) == 'manager':
-            return True
-        elif self.request.user.groups.all()[0].name == 'Team Lead':
-            return False
-        elif super().has_permission() and self.request.user in self.get_object().user.all():
+        if super().has_permission() or str(self.request.user) == 'admin' or \
+                self.request.user.groups.all()[0].name == 'Project Manager':
             return True
         return False
 
@@ -100,7 +97,7 @@ class AddUsersToProject(PermissionRequiredMixin, UpdateView):
     model = Project
     template_name = 'project/add_users_to_project.html'
     fields = ['user']
-    permission_required = 'issue_tracker.change_project'
+    permission_required = 'auth.change_user'
 
     def get_success_url(self):
         return reverse('detail_project', kwargs={'pk': self.get_object().pk})
