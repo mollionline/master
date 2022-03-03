@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Поменять личные данные</h1>
+    <form style="width: 50%" action="{% url 'update_profile' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% include 'partial/user_form.html' %}
+        {% include 'partial/profile_form.html' %}
+
+        <input type="submit" value="Submit" class="btn btn-success">
+    </form>
+{% endblock %}

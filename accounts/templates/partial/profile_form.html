@@ -1,0 +1,38 @@
+<div class="form-group">
+    <label for="profile" class="form-label col-5">Профиль </label>
+    <input type="text" name='profile' id="profile"
+           value="{{ profile_form.profile.value|default:'#' }}"
+           class="form-control {% if profile_form.profile.errors %} is-invalid {% endif %}">
+    {% for error in profile_form.profile.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+    {% endfor %}
+</div>
+
+<div class="form-group">
+    <label for="about_profile" class="form-label col-5">О себе </label>
+    <input type="text" name='about_profile' id="about_profile"
+           value="{{ profile_form.about_profile.value|default:'не задано' }}"
+           class="form-control {% if profile_form.about_profile.errors %} is-invalid {% endif %}">
+    {% for error in profile_form.about_profile.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+    {% endfor %}
+</div>
+
+
+<div class="form-group">
+    <label for="image" class="form-label">Фото</label>
+    {% if profile_form.avatar.value.url %}
+        <img src="{{ profile_form.avatar.value.url }}" alt="avatar" style="width: 70px; height: 70px">
+    {% endif %}
+    <input type="file" name='avatar' id="avatar" value="{{ profile_form.avatar.value|default:'' }}"
+           class="form-control {% if form.avatar.errors %} is-invalid {% endif %}">
+    {% for error in profile_form.avatar.errors %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+    {% endfor %}
+</div>
