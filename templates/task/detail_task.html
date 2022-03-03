@@ -17,11 +17,11 @@
             <p>Дата создания: {{ task.created_at|date:'d.m.Y G:i' }}</p>
             <p>Дата редактирования: {{ task.updated_at|date:'d.m.Y G:i' }}</p>
             <a class="btn btn-dark" href="{% url 'list_project' %}">Вернуться в список проектов</a>
-            {% if perms.task.change_task or user in task.project.user.all %}
+            {% if perms.task.change_task or user in task.project.user.all or user.is_staff %}
                 <a class="btn btn-success" href="{% url 'edit_task' task.pk %}">Изменить</a>
             {% endif %}
 
-            {% if perms.task.change_task or user in task.project.user.all %}
+            {% if perms.task.change_task or user in task.project.user.all or user.is_staff %}
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                         data-bs-target="#exampleModal">Удалить
                 </button>

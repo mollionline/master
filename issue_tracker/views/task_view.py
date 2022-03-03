@@ -27,8 +27,7 @@ class TaskListView(PermissionRequiredMixin, SearchView):
     def has_permission(self):
         for task in Task.objects.all():
             project = get_object_or_404(Project, pk=task.project_id)
-            if super().has_permission() and self.request.user in project.user.all() or str(
-                    self.request.user) == 'admin':
+            if super().has_permission() and self.request.user in project.user.all() or self.request.user.is_staff:
                 return True
 
 
@@ -77,8 +76,7 @@ class NewAddTaskView(PermissionRequiredMixin, CreateView):
 
     def has_permission(self):
         project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
-        return super().has_permission() and self.request.user in project.user.all() or str(
-            self.request.user) == 'admin'
+        return super().has_permission() and self.request.user in project.user.all() or self.request.user.is_staff
 
 
 class EditTaskView(PermissionRequiredMixin, UpdateView):
@@ -93,8 +91,7 @@ class EditTaskView(PermissionRequiredMixin, UpdateView):
     def has_permission(self):
         task = get_object_or_404(Task, pk=self.kwargs.get('pk'))
         project = get_object_or_404(Project, pk=task.project_id)
-        return super().has_permission() and self.request.user in project.user.all() or str(
-            self.request.user) == 'admin'
+        return super().has_permission() and self.request.user in project.user.all() or self.request.user.is_staff
 
 
 class DeleteTaskView(PermissionRequiredMixin, DeleteView):
@@ -110,5 +107,4 @@ class DeleteTaskView(PermissionRequiredMixin, DeleteView):
     def has_permission(self):
         task = get_object_or_404(Task, pk=self.kwargs.get('pk'))
         project = get_object_or_404(Project, pk=task.project_id)
-        return super().has_permission() and self.request.user in project.user.all() or str(
-            self.request.user) == 'admin'
+        return super().has_permission() and self.request.user in project.user.all() or self.request.user.is_staff

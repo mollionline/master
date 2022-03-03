@@ -26,8 +26,7 @@ class ListProjectView(PermissionRequiredMixin, SearchView):
 
     def has_permission(self):
         for project in Project.objects.all():
-            if super().has_permission() and self.request.user in project.user.all() or str(
-                    self.request.user) == 'admin':
+            if super().has_permission() and self.request.user in project.user.all():
                 return True
 
 
@@ -66,9 +65,11 @@ class DeleteProjectView(PermissionRequiredMixin, DeleteView):
         return reverse('list_project')
 
     def has_permission(self):
-        return super().has_permission() and self.request.user in self.get_object().user.all() or str(
-            self.request.user) == 'admin' or str(
-            self.request.user) == 'manager'
+        if self.request.user.is_staff or self.request.user.groups.all()[0].name == 'Project Manager':
+            return True
+        elif super().has_permission() and self.request.user in self.get_object().user.all():
+            return True
+        return False
 
 
 class DetailProjectView(DetailView):
@@ -87,7 +88,7 @@ class UpdateProjectView(PermissionRequiredMixin, UpdateView):
         return reverse('detail_project', kwargs={'pk': self.get_object().pk})
 
     def has_permission(self):
-        if super().has_permission() or str(self.request.user) == 'admin' or \
+        if super().has_permission() or self.request.user.is_staff or \
                 self.request.user.groups.all()[0].name == 'Project Manager':
             return True
         return False
@@ -103,5 +104,4 @@ class AddUsersToProject(PermissionRequiredMixin, UpdateView):
         return reverse('detail_project', kwargs={'pk': self.get_object().pk})
 
     def has_permission(self):
-        return super().has_permission() and self.request.user in self.get_object().user.all() or str(
-            self.request.user) == 'admin'
+        return super().has_permission() and self.request.user in self.get_object().user.all() or self.request.user.is_staff

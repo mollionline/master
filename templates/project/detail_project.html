@@ -33,7 +33,7 @@
             {% if perms.issue_tracker.change_project %}
                 <a class="btn btn-success" href="{% url 'update_project' project.pk %}">Изменить</a>
             {% endif %}
-            {% if perms.issue_tracker.delete_project %}
+            {% if perms.issue_tracker.delete_project or user.is_staff %}
                 <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                         data-bs-target="#exampleModal">Удалить
                 </button>
@@ -42,7 +42,7 @@
                 <a class="btn btn-success" href="{% url 'add_users_to_project' project.pk %}">Управление
                     пользователями</a>
             {% endif %}
-            {% if perms.issue_tracker.add_task and user in project.user.all %}
+            {% if perms.issue_tracker.add_task and user in project.user.all or user.is_staff %}
                 <h4 style="margin-top: 20px;">Создание задачи для данного проекта</h4>
                 <form action="{% url 'new_task' project.pk %}" method="post">
                     {% include 'partial/task/form_task.html' with button_text='Создать' %}
