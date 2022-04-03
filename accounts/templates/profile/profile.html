@@ -28,7 +28,7 @@
     <div>
         {% if request.user.id == user_obj.id %}
             <a class="btn btn-info" href="{% url 'update_profile' %}">Редактировать</a>
-            <a class="btn btn-danger" href="{% url 'change_password' %}">Изменить профиль</a>
+            <a class="btn btn-danger" href="{% url 'change_password' %}">Изменить пароль</a>
         {% endif %}
     </div>
 

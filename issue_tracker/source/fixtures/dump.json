@@ -1,495 +1,623 @@
 [
 {
-    "model": "issue_tracker.status",
+    "model": "auth.group",
     "pk": 1,
     "fields": {
-        "status": "New"
+        "name": "Project Manager",
+        "permissions": [
+            [
+                "view_profile",
+                "accounts",
+                "profile"
+            ],
+            [
+                "add_group",
+                "auth",
+                "group"
+            ],
+            [
+                "change_group",
+                "auth",
+                "group"
+            ],
+            [
+                "delete_group",
+                "auth",
+                "group"
+            ],
+            [
+                "view_group",
+                "auth",
+                "group"
+            ],
+            [
+                "add_permission",
+                "auth",
+                "permission"
+            ],
+            [
+                "change_permission",
+                "auth",
+                "permission"
+            ],
+            [
+                "delete_permission",
+                "auth",
+                "permission"
+            ],
+            [
+                "view_permission",
+                "auth",
+                "permission"
+            ],
+            [
+                "add_user",
+                "auth",
+                "user"
+            ],
+            [
+                "change_user",
+                "auth",
+                "user"
+            ],
+            [
+                "delete_user",
+                "auth",
+                "user"
+            ],
+            [
+                "view_user",
+                "auth",
+                "user"
+            ],
+            [
+                "add_contenttype",
+                "contenttypes",
+                "contenttype"
+            ],
+            [
+                "change_contenttype",
+                "contenttypes",
+                "contenttype"
+            ],
+            [
+                "delete_contenttype",
+                "contenttypes",
+                "contenttype"
+            ],
+            [
+                "view_contenttype",
+                "contenttypes",
+                "contenttype"
+            ],
+            [
+                "add_project",
+                "issue_tracker",
+                "project"
+            ],
+            [
+                "change_project",
+                "issue_tracker",
+                "project"
+            ],
+            [
+                "delete_project",
+                "issue_tracker",
+                "project"
+            ],
+            [
+                "view_project",
+                "issue_tracker",
+                "project"
+            ],
+            [
+                "add_status",
+                "issue_tracker",
+                "status"
+            ],
+            [
+                "change_status",
+                "issue_tracker",
+                "status"
+            ],
+            [
+                "delete_status",
+                "issue_tracker",
+                "status"
+            ],
+            [
+                "view_status",
+                "issue_tracker",
+                "status"
+            ],
+            [
+                "add_task",
+                "issue_tracker",
+                "task"
+            ],
+            [
+                "change_task",
+                "issue_tracker",
+                "task"
+            ],
+            [
+                "delete_task",
+                "issue_tracker",
+                "task"
+            ],
+            [
+                "view_task",
+                "issue_tracker",
+                "task"
+            ],
+            [
+                "add_type",
+                "issue_tracker",
+                "type"
+            ],
+            [
+                "change_type",
+                "issue_tracker",
+                "type"
+            ],
+            [
+                "delete_type",
+                "issue_tracker",
+                "type"
+            ],
+            [
+                "view_type",
+                "issue_tracker",
+                "type"
+            ],
+            [
+                "add_session",
+                "sessions",
+                "session"
+            ],
+            [
+                "change_session",
+                "sessions",
+                "session"
+            ],
+            [
+                "delete_session",
+                "sessions",
+                "session"
+            ],
+            [
+                "view_session",
+                "sessions",
+                "session"
+            ]
+        ]
     }
 },
 {
-    "model": "issue_tracker.status",
+    "model": "auth.group",
     "pk": 2,
     "fields": {
-        "status": "In Progress"
+        "name": "Team Lead",
+        "permissions": [
+            [
+                "add_user",
+                "auth",
+                "user"
+            ],
+            [
+                "change_user",
+                "auth",
+                "user"
+            ],
+            [
+                "delete_user",
+                "auth",
+                "user"
+            ],
+            [
+                "view_user",
+                "auth",
+                "user"
+            ],
+            [
+                "view_project",
+                "issue_tracker",
+                "project"
+            ],
+            [
+                "add_task",
+                "issue_tracker",
+                "task"
+            ],
+            [
+                "change_task",
+                "issue_tracker",
+                "task"
+            ],
+            [
+                "delete_task",
+                "issue_tracker",
+                "task"
+            ],
+            [
+                "view_task",
+                "issue_tracker",
+                "task"
+            ]
+        ]
     }
 },
 {
-    "model": "issue_tracker.status",
+    "model": "auth.group",
     "pk": 3,
     "fields": {
-        "status": "Done"
+        "name": "Developer",
+        "permissions": [
+            [
+                "view_project",
+                "issue_tracker",
+                "project"
+            ],
+            [
+                "add_task",
+                "issue_tracker",
+                "task"
+            ],
+            [
+                "change_task",
+                "issue_tracker",
+                "task"
+            ],
+            [
+                "delete_task",
+                "issue_tracker",
+                "task"
+            ],
+            [
+                "view_task",
+                "issue_tracker",
+                "task"
+            ]
+        ]
     }
 },
 {
-    "model": "issue_tracker.type",
+    "model": "auth.user",
     "pk": 1,
     "fields": {
-        "type": "Task"
+        "password": "pbkdf2_sha256$320000$rCUGQ15J8ana0Hxft4Jboh$zKIzPXk4LYAAm94kdVaS/TbGnJ23Qan/jJdjr8mIfPg=",
+        "last_login": "2022-04-02T17:23:43.104Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "Админ",
+        "last_name": "Админов",
+        "email": "auezova@mail.ru",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2022-02-24T05:10:05Z",
+        "groups": [],
+        "user_permissions": []
     }
 },
 {
-    "model": "issue_tracker.type",
+    "model": "auth.user",
     "pk": 2,
     "fields": {
-        "type": "Bug"
+        "password": "pbkdf2_sha256$320000$zvK86YWlZz3Yo72zEtxbku$l/Ys8JUw18sCOsCj19d5ALufCeuL2DSxhpLQOppcDlw=",
+        "last_login": "2022-03-06T07:02:26.031Z",
+        "is_superuser": false,
+        "username": "manager",
+        "first_name": "Менеджер",
+        "last_name": "Менеджеров",
+        "email": "nuridin.gulnur@bk.ru",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-02-24T05:40:09Z",
+        "groups": [
+            [
+                "Project Manager"
+            ]
+        ],
+        "user_permissions": [
+            [
+                "add_logentry",
+                "admin",
+                "logentry"
+            ],
+            [
+                "change_logentry",
+                "admin",
+                "logentry"
+            ],
+            [
+                "delete_logentry",
+                "admin",
+                "logentry"
+            ],
+            [
+                "view_logentry",
+                "admin",
+                "logentry"
+            ],
+            [
+                "add_group",
+                "auth",
+                "group"
+            ],
+            [
+                "change_group",
+                "auth",
+                "group"
+            ],
+            [
+                "delete_group",
+                "auth",
+                "group"
+            ],
+            [
+                "view_group",
+                "auth",
+                "group"
+            ],
+            [
+                "add_permission",
+                "auth",
+                "permission"
+            ],
+            [
+                "change_permission",
+                "auth",
+                "permission"
+            ],
+            [
+                "delete_permission",
+                "auth",
+                "permission"
+            ],
+            [
+                "view_permission",
+                "auth",
+                "permission"
+            ],
+            [
+                "add_user",
+                "auth",
+                "user"
+            ],
+            [
+                "change_user",
+                "auth",
+                "user"
+            ],
+            [
+                "delete_user",
+                "auth",
+                "user"
+            ],
+            [
+                "view_user",
+                "auth",
+                "user"
+            ],
+            [
+                "add_contenttype",
+                "contenttypes",
+                "contenttype"
+            ],
+            [
+                "change_contenttype",
+                "contenttypes",
+                "contenttype"
+            ],
+            [
+                "delete_contenttype",
+                "contenttypes",
+                "contenttype"
+            ],
+            [
+                "view_contenttype",
+                "contenttypes",
+                "contenttype"
+            ],
+            [
+                "add_project",
+                "issue_tracker",
+                "project"
+            ],
+            [
+                "change_project",
+                "issue_tracker",
+                "project"
+            ],
+            [
+                "delete_project",
+                "issue_tracker",
+                "project"
+            ],
+            [
+                "view_project",
+                "issue_tracker",
+                "project"
+            ],
+            [
+                "add_status",
+                "issue_tracker",
+                "status"
+            ],
+            [
+                "change_status",
+                "issue_tracker",
+                "status"
+            ],
+            [
+                "delete_status",
+                "issue_tracker",
+                "status"
+            ],
+            [
+                "view_status",
+                "issue_tracker",
+                "status"
+            ],
+            [
+                "add_task",
+                "issue_tracker",
+                "task"
+            ],
+            [
+                "change_task",
+                "issue_tracker",
+                "task"
+            ],
+            [
+                "delete_task",
+                "issue_tracker",
+                "task"
+            ],
+            [
+                "view_task",
+                "issue_tracker",
+                "task"
+            ],
+            [
+                "add_type",
+                "issue_tracker",
+                "type"
+            ],
+            [
+                "change_type",
+                "issue_tracker",
+                "type"
+            ],
+            [
+                "delete_type",
+                "issue_tracker",
+                "type"
+            ],
+            [
+                "view_type",
+                "issue_tracker",
+                "type"
+            ],
+            [
+                "add_session",
+                "sessions",
+                "session"
+            ],
+            [
+                "change_session",
+                "sessions",
+                "session"
+            ],
+            [
+                "delete_session",
+                "sessions",
+                "session"
+            ],
+            [
+                "view_session",
+                "sessions",
+                "session"
+            ]
+        ]
     }
 },
 {
-    "model": "issue_tracker.type",
+    "model": "auth.user",
     "pk": 3,
     "fields": {
-        "type": "Enhancement"
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 2,
-    "fields": {
-        "summary": "Задача Менеджера, админа, капитана 200",
-        "description": "",
-        "status": 3,
-        "created_at": "2022-02-24T14:09:57.871Z",
-        "updated_at": "2022-02-25T04:28:49.450Z",
-        "is_deleted": false,
-        "project": 15,
-        "type": [
-            1,
-            2
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 11,
-    "fields": {
-        "summary": "Задача разработчика 1",
-        "description": "",
-        "status": 1,
-        "created_at": "2022-02-24T17:40:42.799Z",
-        "updated_at": "2022-02-24T17:40:42.799Z",
-        "is_deleted": false,
-        "project": 35,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 13,
-    "fields": {
-        "summary": "Задача разработчика 2",
-        "description": "",
-        "status": 1,
-        "created_at": "2022-02-25T04:17:25.396Z",
-        "updated_at": "2022-02-25T04:17:25.396Z",
-        "is_deleted": false,
-        "project": 35,
-        "type": [
-            3
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 14,
-    "fields": {
-        "summary": "Задача разработчика 3",
-        "description": "",
-        "status": 1,
-        "created_at": "2022-02-25T04:22:30.659Z",
-        "updated_at": "2022-02-25T04:22:30.659Z",
-        "is_deleted": false,
-        "project": 35,
-        "type": [
-            3
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 15,
-    "fields": {
-        "summary": "Задача разработчика 4",
-        "description": "",
-        "status": 1,
-        "created_at": "2022-02-25T04:22:40.375Z",
-        "updated_at": "2022-02-25T04:22:40.375Z",
-        "is_deleted": false,
-        "project": 35,
-        "type": [
-            2
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 16,
-    "fields": {
-        "summary": "Задача Менеджера, админа, капитана 1",
-        "description": "",
-        "status": 1,
-        "created_at": "2022-02-25T04:27:42.599Z",
-        "updated_at": "2022-02-25T04:27:42.599Z",
-        "is_deleted": false,
-        "project": 36,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 17,
-    "fields": {
-        "summary": "Задача Менеджера, админа, капитана 2",
-        "description": "",
-        "status": 1,
-        "created_at": "2022-02-25T04:27:48.436Z",
-        "updated_at": "2022-02-25T04:27:48.436Z",
-        "is_deleted": false,
-        "project": 36,
-        "type": [
-            2
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 18,
-    "fields": {
-        "summary": "Задача Менеджера, админа, капитана 5",
-        "description": "",
-        "status": 1,
-        "created_at": "2022-02-25T04:27:55.670Z",
-        "updated_at": "2022-02-25T04:27:55.670Z",
-        "is_deleted": false,
-        "project": 36,
-        "type": [
-            2
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 19,
-    "fields": {
-        "summary": "Задача Менеджера, админа, капитана 6",
-        "description": "",
-        "status": 1,
-        "created_at": "2022-02-25T04:28:02.596Z",
-        "updated_at": "2022-02-25T04:28:02.596Z",
-        "is_deleted": false,
-        "project": 36,
-        "type": [
-            2
-        ]
-    }
-},
-{
-    "model": "issue_tracker.task",
-    "pk": 20,
-    "fields": {
-        "summary": "Задача Менеджера, админа, капитана 100",
-        "description": "",
-        "status": 2,
-        "created_at": "2022-02-25T04:28:39.363Z",
-        "updated_at": "2022-02-25T04:28:39.363Z",
-        "is_deleted": false,
-        "project": 15,
-        "type": [
-            1
-        ]
-    }
-},
-{
-    "model": "issue_tracker.project",
-    "pk": 15,
-    "fields": {
-        "project": "Проверка менеджера, админа,капитана",
-        "description": "",
-        "created_at": "2022-02-25T18:00:00Z",
-        "updated_at": null,
-        "is_deleted": false,
-        "user": [
+        "password": "pbkdf2_sha256$320000$iUMtQFp8RMurAaf7bvzSFG$McvMwWVSmU7UPLwyRZFYb08hf80CoIoay8L3iiLnlLE=",
+        "last_login": "2022-02-28T16:45:39Z",
+        "is_superuser": false,
+        "username": "lead",
+        "first_name": "Капитан",
+        "last_name": "Капитанов",
+        "email": "auezova.90@mail.ru",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-02-24T05:40:49Z",
+        "groups": [
             [
-                "admin"
-            ],
-            [
-                "manager"
-            ],
-            [
-                "lead"
+                "Team Lead"
             ]
-        ]
+        ],
+        "user_permissions": []
     }
 },
 {
-    "model": "issue_tracker.project",
-    "pk": 35,
+    "model": "auth.user",
+    "pk": 4,
     "fields": {
-        "project": "Админа нету в списке",
-        "description": "",
-        "created_at": "2022-02-17T18:00:00Z",
-        "updated_at": null,
-        "is_deleted": false,
-        "user": [
+        "password": "pbkdf2_sha256$320000$cNznqE3SOZwlzREHzcwe0k$68SP6lB092uJnEQ4r3DGZKXR8X3OBKUbj2wH2V2sH8Y=",
+        "last_login": "2022-02-28T16:46:11Z",
+        "is_superuser": false,
+        "username": "dev",
+        "first_name": "Разработчик",
+        "last_name": "Разработчиков",
+        "email": "sheer1990@mail.ru",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-02-24T05:41:23Z",
+        "groups": [
             [
-                "dev"
+                "Developer"
             ]
-        ]
+        ],
+        "user_permissions": []
     }
 },
 {
-    "model": "issue_tracker.project",
-    "pk": 36,
+    "model": "auth.user",
+    "pk": 5,
     "fields": {
-        "project": "Проверка менеджера, админа,капитана",
-        "description": "",
-        "created_at": "2022-02-25T18:00:00Z",
-        "updated_at": null,
-        "is_deleted": false,
-        "user": [
-            [
-                "admin"
-            ],
-            [
-                "manager"
-            ],
-            [
-                "lead"
-            ]
-        ]
+        "password": "pbkdf2_sha256$320000$nyc2RDbje3nC9c78XQWT8d$XJNA/oecIkKKh5KLuYPRm8G0jsAJVYV/ufBNOyLO1c0=",
+        "last_login": "2022-03-05T17:04:01.534Z",
+        "is_superuser": false,
+        "username": "manager3",
+        "first_name": "manager3",
+        "last_name": "",
+        "email": "auezova.90@mail.ru",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-03-05T17:04:01.361Z",
+        "groups": [],
+        "user_permissions": []
     }
 },
 {
-    "model": "issue_tracker.project",
-    "pk": 37,
+    "model": "auth.user",
+    "pk": 6,
     "fields": {
-        "project": "Новый проект 36",
-        "description": "",
-        "created_at": "2022-02-18T18:00:00Z",
-        "updated_at": null,
-        "is_deleted": false,
-        "user": [
-            [
-                "admin"
-            ],
-            [
-                "manager"
-            ],
-            [
-                "dev"
-            ]
-        ]
+        "password": "pbkdf2_sha256$320000$sH6Sg9ID8OvYd3gHBiFuto$qj+Af5PUCG2OJUauo5Uvz95HM9NdefZa/WmXSe5tvxc=",
+        "last_login": "2022-03-05T17:08:52.702Z",
+        "is_superuser": false,
+        "username": "manager4",
+        "first_name": "manager4",
+        "last_name": "",
+        "email": "sheer1990@mail.ru",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-03-05T17:08:52.530Z",
+        "groups": [],
+        "user_permissions": []
     }
 },
 {
-    "model": "issue_tracker.project",
-    "pk": 38,
+    "model": "auth.user",
+    "pk": 7,
     "fields": {
-        "project": "Новый проект 3005",
-        "description": "",
-        "created_at": "2022-02-11T18:00:00Z",
-        "updated_at": null,
-        "is_deleted": false,
-        "user": [
-            [
-                "manager"
-            ],
-            [
-                "lead"
-            ]
-        ]
-    }
-},
-{
-    "model": "issue_tracker.project",
-    "pk": 39,
-    "fields": {
-        "project": "Новый проект 3",
-        "description": "",
-        "created_at": "2022-02-25T18:00:00Z",
-        "updated_at": null,
-        "is_deleted": false,
-        "user": [
-            [
-                "admin"
-            ],
-            [
-                "dev"
-            ]
-        ]
-    }
-},
-{
-    "model": "issue_tracker.project",
-    "pk": 40,
-    "fields": {
-        "project": "Новый проект 360668888",
-        "description": "",
-        "created_at": "2022-02-26T18:00:00Z",
-        "updated_at": null,
-        "is_deleted": false,
-        "user": [
-            [
-                "admin"
-            ],
-            [
-                "manager"
-            ],
-            [
-                "lead"
-            ]
-        ]
-    }
-},
-{
-    "model": "issue_tracker.project",
-    "pk": 41,
-    "fields": {
-        "project": "Новый проект Разработчик",
-        "description": "",
-        "created_at": "2022-02-18T18:00:00Z",
-        "updated_at": null,
-        "is_deleted": false,
-        "user": [
-            [
-                "manager"
-            ],
-            [
-                "dev"
-            ]
-        ]
-    }
-},
-{
-    "model": "issue_tracker.project",
-    "pk": 42,
-    "fields": {
-        "project": "Новый проект Разработчик 500",
-        "description": "",
-        "created_at": "2022-02-11T18:00:00Z",
-        "updated_at": null,
-        "is_deleted": false,
-        "user": [
-            [
-                "manager"
-            ],
-            [
-                "dev"
-            ]
-        ]
-    }
-},
-{
-    "model": "issue_tracker.project",
-    "pk": 43,
-    "fields": {
-        "project": "Новый проект 7000000",
-        "description": "",
-        "created_at": "2022-02-24T18:00:00Z",
-        "updated_at": null,
-        "is_deleted": false,
-        "user": [
-            [
-                "admin"
-            ],
-            [
-                "manager"
-            ]
-        ]
-    }
-},
-{
-    "model": "issue_tracker.project",
-    "pk": 44,
-    "fields": {
-        "project": "Новый проект 800",
-        "description": "",
-        "created_at": "2022-02-24T18:00:00Z",
-        "updated_at": null,
-        "is_deleted": false,
-        "user": [
-            [
-                "manager"
-            ]
-        ]
-    }
-},
-{
-    "model": "issue_tracker.project",
-    "pk": 45,
-    "fields": {
-        "project": "Новый проект 55555",
-        "description": "",
-        "created_at": "2022-02-24T18:00:00Z",
-        "updated_at": null,
-        "is_deleted": false,
-        "user": []
-    }
-},
-{
-    "model": "issue_tracker.project",
-    "pk": 47,
-    "fields": {
-        "project": "Новый проект 7777777",
-        "description": "",
-        "created_at": "2022-02-25T18:00:00Z",
-        "updated_at": null,
-        "is_deleted": false,
-        "user": []
-    }
-},
-{
-    "model": "issue_tracker.project",
-    "pk": 48,
-    "fields": {
-        "project": "Новый проект 3",
-        "description": "",
-        "created_at": "2022-02-18T18:00:00Z",
-        "updated_at": null,
-        "is_deleted": false,
-        "user": [
-            [
-                "manager"
-            ]
-        ]
-    }
-},
-{
-    "model": "issue_tracker.project",
-    "pk": 49,
-    "fields": {
-        "project": "Новый проект 8899991011",
-        "description": "",
-        "created_at": "2022-02-27T18:00:00Z",
-        "updated_at": null,
-        "is_deleted": false,
-        "user": [
-            [
-                "manager"
-            ],
-            [
-                "lead"
-            ]
-        ]
-    }
-},
-{
-    "model": "issue_tracker.project",
-    "pk": 50,
-    "fields": {
-        "project": "Новый проект 3",
-        "description": "",
-        "created_at": "2022-02-11T18:00:00Z",
-        "updated_at": null,
-        "is_deleted": false,
-        "user": [
-            [
-                "manager"
-            ]
-        ]
+        "password": "pbkdf2_sha256$320000$BIHBXArI1EsCk5rWftUYIg$dRRet6LlzuApCz1HwCySjog/uQ9rsC5lUjXrBuHwc5c=",
+        "last_login": "2022-03-05T17:27:29.215Z",
+        "is_superuser": false,
+        "username": "manager5",
+        "first_name": "manager5",
+        "last_name": "",
+        "email": "nuridin.gulnur@bk.ru",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-03-05T17:27:29.030Z",
+        "groups": [],
+        "user_permissions": []
     }
 }
 ]
