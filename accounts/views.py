@@ -7,7 +7,7 @@ from django.shortcuts import render, redirect, reverse
 from django.views import View
 from django.views.generic import DetailView, ListView, UpdateView
 
-from accounts.forms import UserCreationForm, UserChangeForm, ProfileChangeForm, PasswordChangeForm
+from accounts.forms import UserCreationForm, UserChangeForm, ProfileChangeForm, PasswordChangeForm, ProfileCreateForm
 
 
 class LoginView(View):
@@ -42,12 +42,19 @@ class LogoutView(View):
 class RegisterView(View):
     def get(self, request, *args, **kwargs):
         form = UserCreationForm()
-        return render(request, 'registration/register.html', context={'form': form})
+        profile_form = ProfileCreateForm()
+        return render(request, 'registration/register.html',
+                      context={'form': form,
+                               'profile_form': profile_form})
 
     def post(self, request, *args, **kwargs):
         form = UserCreationForm(data=request.POST)
-        if form.is_valid():
+        profile_form = ProfileCreateForm(request.POST, request.FILES)
+        if form.is_valid() and profile_form.is_valid():
             user = form.save()
+            profile = profile_form.save(commit=False)
+            profile.user = user
+            profile.save()
             login(request, user)
             return redirect('/')
         return render(request, 'registration/register.html', context={'form': form})

@@ -25,7 +25,7 @@
 
 <div class="form-group">
     <label for="image" class="form-label">Фото</label>
-    {% if profile_form.avatar.value.url %}
+    {% if user_obj.avatar.value.url %}
         <img src="{{ profile_form.avatar.value.url }}" alt="avatar" style="width: 70px; height: 70px">
     {% endif %}
     <input type="file" name='avatar' id="avatar" value="{{ profile_form.avatar.value|default:'' }}"

@@ -56,6 +56,12 @@ class ProfileChangeForm(forms.ModelForm):
         exclude = ['user', ]
 
 
+class ProfileCreateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['profile', 'avatar', 'about_profile']
+
+
 class PasswordChangeForm(forms.ModelForm):
     password = forms.CharField(strip=False, widget=forms.PasswordInput)
     password_confirm = forms.CharField(strip=False, widget=forms.PasswordInput)
