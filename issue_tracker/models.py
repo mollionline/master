@@ -26,7 +26,10 @@ class Type(models.Model):
 
 
 class Task(models.Model):
-    summary = models.CharField(max_length=50, null=False, blank=False, validators=(MinLengthValidator(5),))
+    summary = models.CharField(
+        max_length=50, null=False, blank=False,
+        validators=(MinLengthValidator(5),)
+    )
     description = models.TextField(max_length=1000, null=True, blank=True)
     status = models.ForeignKey(Status, on_delete=models.PROTECT)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Время создания")
@@ -63,9 +66,12 @@ class Project(models.Model):
     updated_at = models.DateTimeField(null=True, blank=True)
     is_deleted = models.BooleanField(default=False)
     objects = CustomModelManager()
-    user = models.ManyToManyField(get_user_model(), related_name='projects', verbose_name='Пользователь')
+    user = models.ManyToManyField(
+        get_user_model(), related_name='projects',
+        verbose_name='Пользователь'
+    )
 
-    def delete(self, using=None, keep_parents=False):
+    def delete(self, using=None, keep_parents=False):  # noqa C901
         self.is_deleted = True
         delete_candidates = get_candidate_relations_to_delete(self.__class__._meta)
         if delete_candidates:

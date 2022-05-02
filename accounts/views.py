@@ -1,4 +1,6 @@
-from django.contrib.auth import authenticate, login, logout, get_user_model, update_session_auth_hash
+from django.contrib.auth import (authenticate, login,
+                                 logout, get_user_model,
+                                 update_session_auth_hash)
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.core.paginator import Paginator
 from django.shortcuts import render, redirect, reverse
@@ -7,7 +9,9 @@ from django.shortcuts import render, redirect, reverse
 from django.views import View
 from django.views.generic import DetailView, ListView, UpdateView
 
-from accounts.forms import UserCreationForm, UserChangeForm, ProfileChangeForm, PasswordChangeForm, ProfileCreateForm
+from accounts.forms import (UserCreationForm, UserChangeForm,
+                            ProfileChangeForm, PasswordChangeForm,
+                            ProfileCreateForm)
 
 
 class LoginView(View):
@@ -16,7 +20,7 @@ class LoginView(View):
             'next': request.GET.get('next')
         })
 
-    def post(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):  # noqa C901
         context = {}
         if request.method == 'POST':
             username = request.POST.get('username')
@@ -89,8 +93,9 @@ class UsersListView(PermissionRequiredMixin, ListView):
     permission_required = 'issue_tracker.view_user'
 
     def has_permission(self):
-        return super().has_permission() or self.request.user.groups.all()[0].name == 'Project Manager' or \
-               self.request.user.groups.all()[0].name == 'Team Lead'
+        return super().has_permission() \
+            or self.request.user.groups.all()[0].name == 'Project Manager' or \
+            self.request.user.groups.all()[0].name == 'Team Lead'
 
 
 class UserProfileUpdateView(UpdateView):
